@@ -6,6 +6,7 @@ import {
     Typography,
 } from "@mui/material";
 
+
 function Hero() {
     return (
         <Box
@@ -23,7 +24,10 @@ function Hero() {
             `,
 
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: {
+                xs: "65% center",
+                md: "center 22%",
+            },
             backgroundRepeat: "no-repeat",
 
             display: "flex",
@@ -33,9 +37,15 @@ function Hero() {
         <Container
             maxWidth="xl"
             sx={{
-            py: {
-                xs: 14,
-                sm: 16,
+                py: {
+                xs: 15,
+                sm: 17,
+                md: 0,
+            },
+
+                pl: {
+                xs: 1,
+                sm: 2,
                 md: 0,
             },
             }}
@@ -87,11 +97,11 @@ function Hero() {
                 fontWeight: 500,
                 color: "#FFFFFF",
 
-                lineHeight: 1.08,
+                lineHeight: 1.15,
 
-                letterSpacing: "-1px",
+                letterSpacing: "-0.5px",
 
-                mb: 4,
+                mb: 5,
 
                 fontSize: {
                     xs: "2.45rem",
@@ -135,7 +145,7 @@ function Hero() {
 
                 mb: 3,
 
-                maxWidth: "620px",
+                maxWidth:"560px",
 
                 fontSize: {
                     xs: "1.15rem",
