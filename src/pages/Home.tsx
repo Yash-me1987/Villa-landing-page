@@ -5,8 +5,7 @@ import Lifestyle from "../components/lifestyle/Lifestyle";
 import Villa from "../components/villa/Villa";
 import Location from "../components/location/Location";
 import Gallery from "../components/gallery/Gallery";
-import CTA from "../components/cta/CTA";
-import Footer from "../components/footer/Footer";
+import FinalCTA from "../components/finalcta/FinalCTA";
 
 
 function Home() {
@@ -19,8 +18,7 @@ function Home() {
         <Villa />
         <Location /> 
         <Gallery />
-        <CTA />
-        <Footer />
+        <FinalCTA />
     </>
     );
 }
