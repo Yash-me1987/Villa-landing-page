@@ -40,7 +40,7 @@ function Hero() {
                     setFadeImage(1);
                 });
 
-            }, 500);
+            }, 700);
 
         }, 6000);
 
