@@ -40,9 +40,9 @@ function Hero() {
                     setFadeImage(1);
                 });
 
-            }, 700);
+            }, 600);
 
-        }, 6000);
+        }, 7000);
 
         return () => clearInterval(interval);
 
@@ -122,7 +122,7 @@ function Hero() {
                     opacity: fadeImage,
 
                     transition:
-                        "opacity .45s ease-in-out, transform 6s linear",
+                        "opacity .8s ease-in-out, transform 6s linear",
                 }}
             />
 
