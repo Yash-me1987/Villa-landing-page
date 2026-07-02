@@ -153,6 +153,109 @@ function Lifestyle() {
             />
             </Box>
 
+            {/* Lifestyle Statistics */}
+
+            <Box
+                sx={{
+                    mb: {
+                        xs: 8,
+                        md: 10,
+                    },
+                }}
+            >
+                <Grid
+                    container
+                    spacing={4}
+                >
+                    {[
+                        {
+                            number: "3",
+                            suffix: "BHK",
+                            label: "Premium Luxury Villas",
+                        },
+                        {
+                            number: "1500",
+                            suffix: "Sq Ft",
+                            label: "Built-Up Area",
+                        },
+                        {
+                            number: "2500",
+                            suffix: "Sq Ft",
+                            label: "Spacious Villa Plot",
+                        },
+                    ].map((item) => (
+                        <Grid
+                            key={item.label}
+                            size={{
+                                xs: 12,
+                                md: 4,
+                            }}
+                        >
+                            <Box
+                                sx={{
+                                    textAlign: "center",
+
+                                    py: 2,
+
+                                    borderRight: {
+                                        xs: "none",
+                                        md: item.label !== "From Maa Narmada"
+                                            ? "1px solid rgba(19,25,33,.08)"
+                                            : "none",
+                                    },
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontFamily: "'Playfair Display', serif",
+
+                                        fontSize: {
+                                            xs: "3rem",
+                                            md: "4rem",
+                                        },
+
+                                        color: "#131921",
+
+                                        lineHeight: 1,
+
+                                        fontWeight: 500,
+                                    }}
+                                >
+                                    {item.number}
+
+                                    <Box
+                                        component="span"
+                                        sx={{
+                                            color: "#D4AF37",
+
+                                            ml: .5,
+
+                                            fontSize: ".45em",
+                                        }}
+                                    >
+                                        {item.suffix}
+                                    </Box>
+                                </Typography>
+
+                                <Typography
+                                    sx={{
+                                        mt: 2,
+
+                                        color: "rgba(19,25,33,.65)",
+
+                                        letterSpacing: ".5px",
+
+                                        fontSize: ".95rem",
+                                    }}
+                                >
+                                    {item.label}
+                                </Typography>
+                            </Box>
+                        </Grid>
+                    ))}
+                </Grid>
+            </Box>
+
             {/* Lifestyle Cards */}
 
             <Grid
