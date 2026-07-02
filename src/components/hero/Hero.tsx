@@ -9,9 +9,9 @@ import {
 
 import EnquiryForm from "../enquiryForm/EnquiryForm";
 
-import hero1 from "../../assets/hero/hero1.png";
-import hero2 from "../../assets/hero/hero2.png";
-import hero3 from "../../assets/hero/hero3.png";
+import hero1 from "../../assets/hero/hero1.webp";
+import hero2 from "../../assets/hero/hero2.webp";
+import hero3 from "../../assets/hero/hero3.webp";
 
 
 function Hero() {
@@ -28,7 +28,7 @@ function Hero() {
     useEffect(() => {
         const interval = setInterval(() => {
 
-            setFadeImage(.5);
+            setFadeImage(0);
 
             setTimeout(() => {
 
@@ -135,8 +135,8 @@ function Hero() {
                     background: `
                         linear-gradient(
                             to bottom,
-                            rgba(19,25,33,.22),
-                            rgba(19,25,33,.38)
+                            rgba(19,25,33,.12),
+                            rgba(19,25,33,.18)
                         )
                     `,
 
