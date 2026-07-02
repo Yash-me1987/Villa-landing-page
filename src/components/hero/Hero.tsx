@@ -36,9 +36,11 @@ function Hero() {
                     (prev + 1) % heroImages.length
                 );
 
-                setFadeImage(1);
+                requestAnimationFrame(() => {
+                    setFadeImage(1);
+                });
 
-            }, 700);
+            }, 300);
 
         }, 6000);
 
@@ -120,7 +122,7 @@ function Hero() {
                     opacity: fadeImage,
 
                     transition:
-                        "opacity .7s ease-in-out, transform 6s linear",
+                        "opacity .45s ease-in-out, transform 6s linear",
                 }}
             />
 
