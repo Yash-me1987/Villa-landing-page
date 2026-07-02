@@ -61,23 +61,36 @@ function Hero() {
             display: "flex",
             alignItems: "center",
             "&::after": {
-                content: '""',
+            content: '""',
 
-                position: "absolute",
+            position: "absolute",
 
-                left: 0,
+            left: 0,
 
-                right: 0,
+            right: 0,
 
-                bottom: 0,
+            bottom: 0,
 
-                height: "220px",
-
-                background:
-                    "linear-gradient(to bottom, transparent, rgba(19,25,33,.75))",
-
-                pointerEvents: "none",
+            height: {
+                xs: "180px",
+                md: "260px",
             },
+
+            background: `
+            linear-gradient(
+                to bottom,
+                rgba(19,25,33,0) 0%,
+                rgba(19,25,33,.10) 30%,
+                rgba(19,25,33,.35) 55%,
+                rgba(19,25,33,.70) 80%,
+                rgba(19,25,33,.95) 100%
+            )
+        `,
+
+            pointerEvents: "none",
+
+            zIndex: 3,
+        },
         }}
         >
 

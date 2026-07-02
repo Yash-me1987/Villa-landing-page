@@ -9,7 +9,7 @@ function Story() {
     return (
         <Box
         sx={{
-            bgcolor: "#FFFFFF",
+            bgcolor: "#F9F8F4",
             py: {
             xs: 8,
             md: 14,
