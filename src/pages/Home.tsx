@@ -8,6 +8,7 @@ import Gallery from "../components/gallery/Gallery";
 import FinalCTA from "../components/finalcta/FinalCTA";
 
 
+
 function Home() {
     return (
     <>

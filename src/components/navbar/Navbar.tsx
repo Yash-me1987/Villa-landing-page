@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
     AppBar,
@@ -12,32 +12,32 @@ import {
 
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import logoCrown from "../../assets/logos/logo-crown.png";
 
 const navItems = [
-    {
-        label: "Story",
-        id: "story",
-    },
-    {
-        label: "Lifestyle",
-        id: "lifestyle",
-    },
-    {
-        label: "Villas",
-        id: "villa",
-    },
-    {
-        label: "Location",
-        id: "location",
-    },
-    {
-        label: "Gallery",
-        id: "gallery",
-    },
-    ];
+    { label: "Story", id: "story" },
+    { label: "Lifestyle", id: "lifestyle" },
+    { label: "Villas", id: "villa" },
+    { label: "Location", id: "location" },
+    { label: "Gallery", id: "gallery" },
+];
 
-    function Navbar() {
+function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
+
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+        setScrolled(window.scrollY > window.innerHeight - 100);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        handleScroll();
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
@@ -53,183 +53,256 @@ const navItems = [
     };
 
     return (
-        <>
+    <>
         <AppBar
-            position="fixed"
-            elevation={0}
-            sx={{
-            background: "transparent",
-            boxShadow: "none",
-            }}
+        position="fixed"
+        elevation={0}
+        sx={{
+
+
+            bgcolor: "rgba(19,25,33,.20)",
+
+            backdropFilter: "blur(18px)",
+
+            WebkitBackdropFilter: "blur(16px)",
+
+            transition: ".4s ease",
+
+            borderBottom: "1px solid rgba(255,255,255,.08)",
+
+            boxShadow: "0 8px 30px rgba(0,0,0,.12)",
+        }}
         >
-            <Container maxWidth="xl">
-
-            <Toolbar
-                disableGutters
-                sx={{
-                minHeight: "82px",
-
+        <Container
+            maxWidth="xl"
+            sx={{
                 px: {
-                    xs: 2,
-                    md: 0,
+                xs: 2,
+                md: 4,
                 },
+            }}
+            >
+            <Toolbar
+            disableGutters
+            sx={{
+                height: scrolled ? 72 : 82,
 
-                display: "flex",
+                transition: ".35s ease",
 
                 justifyContent: "space-between",
+            }}
+            >
+            {/* Logo */}
 
+            <Box
+                sx={{
+                display: "flex",
                 alignItems: "center",
+
+                width: {
+                    xs: 80,
+                    md: 150,
+                },
                 }}
             >
-
-                {/* Logo */}
-
-                <Typography
-                sx={{
-                    fontFamily: "'Playfair Display', serif",
-
-                    color: "#FFFFFF",
-
-                    fontWeight: 500,
-
-                    letterSpacing: "1px",
-
-                    fontSize: {
-                    xs: "2rem",
-                    md: "2.2rem",
-                    },
-
-                    cursor: "pointer",
-
-                    userSelect: "none",
-                }}
-                >
-                NATRAJ RETREAT
-                </Typography>
-
-                {/* Desktop Navigation */}
-
                 <Box
+                component="img"
+                src={logoCrown}
+                alt="Natraj Retreat"
+
                 sx={{
                     display: {
                     xs: "none",
-                    lg: "flex",
+                    md: "block",
                     },
 
-                    alignItems: "center",
+                    width: 130,
 
-                    gap: 5,
+                    objectFit: "contain",
+
+                    transition: ".3s ease",
                 }}
-                >
+                />
+
+                <Box
+                component="img"
+                src={logoCrown}
+                alt="Natraj Retreat"
+
+                sx={{
+                    display: {
+                    xs: "block",
+                    md: "none",
+                    },
+
+                    width: 80,
+
+                    objectFit: "contain",
+                }}
+                />
+            </Box>
+
+            {/* Desktop Navigation */}
+
+            <Box
+            sx={{
+                display: {
+                    xs: "none",
+                    md: "flex",
+                },
+
+                alignItems: "center",
+
+                justifyContent: "center",
+
+                flex: 1,
+
+                gap: 6,
+            }}
+            >   
                 {navItems.map((item) => (
-                    <Typography
+                <Typography
                     key={item.id}
-                    onClick={() => scrollToSection(item.id)}
+                    onClick={() =>
+                    scrollToSection(item.id)
+                    }
+
                     sx={{
-                        position: "relative",
+                    cursor: "pointer",
 
-                        color: "#FFFFFF",
+                    color: "#FFFFFF",
 
-                        cursor: "pointer",
+                    fontFamily: "Poppins",
 
-                        fontWeight: 500,
+                    fontSize: ".92rem",
 
-                        transition: ".3s",
+                    fontWeight: 600,
 
-                        "&::after": {
+                    position: "relative",
+
+                    transition: ".3s",
+
+                    "&::after": {
                         content: '""',
 
                         position: "absolute",
 
                         left: 0,
 
-                        bottom: -7,
+                        bottom: -8,
 
-                        width: "0%",
+                        width: 0,
 
-                        height: "2px",
+                        height: 2,
 
                         bgcolor: "#D4AF37",
 
                         transition: ".3s",
-                        },
-
-                        "&:hover": {
-                        color: "#D4AF37",
-                        },
-
-                        "&:hover::after": {
-                        width: "100%",
-                        },
-                    }}
-                    >
-                    {item.label}
-                    </Typography>
-                ))}
-
-                <Button
-                    variant="contained"
-                    sx={{
-                    ml: 3,
-
-                    bgcolor: "#58181A",
-
-                    color: "#FFFFFF",
-
-                    borderRadius: "999px",
-
-                    px: 4,
-
-                    py: 1.3,
-
-                    textTransform: "none",
-
-                    fontWeight: 600,
-
-                    boxShadow: "none",
+                    },
 
                     "&:hover": {
-                        bgcolor: "#431214",
+                        color: "#D4AF37",
+                    },
 
-                        boxShadow: "none",
+                    "&:hover::after": {
+                        width: "100%",
                     },
                     }}
                 >
-                    Book Site Visit
-                </Button>
-                </Box>
+                    {item.label}
+                </Typography>
+                ))}
+            </Box>
+            {/* Desktop CTA */}
+            
 
-                {/* Mobile Menu */}
-
-                <IconButton
-                onClick={() => setMobileOpen(true)}
-                sx={{
-                    display: {
-                    xs: "flex",
-                    lg: "none",
-                    },
-
-                    color: "#FFFFFF",
+            <Button
+                onClick={() => {
+                // Hook this to the enquiry panel later
                 }}
-                >
-                <MenuIcon fontSize="large" />
-                </IconButton>
+                variant="contained"
+                sx={{
+                display: {
+                    xs: "none",
+                    md: "flex",
+                },
 
+                opacity: scrolled ? 1 : 0,
+
+                pointerEvents: scrolled
+                ? "auto"
+                : "none",
+
+                transform: scrolled
+                    ? "translateX(0)"
+                    : "translateX(24px)",
+
+                transition: ".35s ease",
+
+                bgcolor: "#58181A",
+
+                color: "#FFFFFF",
+
+                px: 4,
+
+                py: 1.3,
+
+                borderRadius: "999px",
+
+                textTransform: "none",
+
+                fontWeight: 600,
+
+                boxShadow: "none",
+
+                "&:hover": {
+                    bgcolor: "#441214",
+                },
+                }}
+            >
+                Book Visit →
+            </Button>
+
+            {/* Mobile Menu Button */}
+
+            <IconButton
+                onClick={() =>
+                setMobileOpen(true)
+                }
+                sx={{
+                display: {
+                    xs: "flex",
+                    md: "none",
+                },
+
+                color: "#FFFFFF",
+                }}
+            >
+                <MenuIcon />
+            </IconButton>
             </Toolbar>
-
-            </Container>
+        </Container>
         </AppBar>
-      {/* Mobile Drawer */}
 
+        {/* Mobile Drawer */}
+
+        {mobileOpen && (
         <Box
             sx={{
             position: "fixed",
+
             inset: 0,
-            zIndex: 1300,
 
-            bgcolor: "#131921",
+            zIndex: 2000,
 
-            display: mobileOpen ? "flex" : "none",
+            bgcolor: "rgba(19,25,33,.96)",
+
+            backdropFilter: "blur(16px)",
+
+            display: {
+                xs: "flex",
+                md: "none",
+            },
 
             flexDirection: "column",
 
@@ -242,27 +315,26 @@ const navItems = [
             sx={{
                 display: "flex",
 
-                justifyContent: "space-between",
+                justifyContent: "flex-start",
 
                 alignItems: "center",
 
                 mb: 7,
             }}
             >
-            <Typography
+            <Box
+                component="img"
+                src={logoCrown}
+                alt="Logo"
                 sx={{
-                fontFamily: "'Playfair Display', serif",
-
-                color: "#FFFFFF",
-
-                fontSize: "2rem",
+                width: 80,
                 }}
-            >
-                NATRAJ RETREAT
-            </Typography>
+            />
 
             <IconButton
-                onClick={() => setMobileOpen(false)}
+                onClick={() =>
+                setMobileOpen(false)
+                }
                 sx={{
                 color: "#FFFFFF",
                 }}
@@ -271,7 +343,7 @@ const navItems = [
             </IconButton>
             </Box>
 
-            {/* Navigation */}
+            {/* Links */}
 
             <Box
             sx={{
@@ -285,23 +357,17 @@ const navItems = [
             {navItems.map((item) => (
                 <Typography
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() =>
+                    scrollToSection(item.id)
+                }
                 sx={{
                     color: "#FFFFFF",
 
-                    fontFamily: "'Playfair Display', serif",
+                    fontSize: "1.35rem",
 
-                    fontSize: "2rem",
+                    fontWeight: 500,
 
                     cursor: "pointer",
-
-                    transition: ".3s",
-
-                    "&:hover": {
-                    color: "#D4AF37",
-
-                    pl: 1,
-                    },
                 }}
                 >
                 {item.label}
@@ -311,15 +377,15 @@ const navItems = [
 
             <Box sx={{ flexGrow: 1 }} />
 
-            {/* Bottom */}
+            {/* CTA */}
 
             <Button
-            variant="contained"
             fullWidth
+            variant="contained"
             sx={{
                 bgcolor: "#58181A",
 
-                py: 1.8,
+                py: 1.7,
 
                 borderRadius: "999px",
 
@@ -327,40 +393,43 @@ const navItems = [
 
                 fontWeight: 600,
 
-                fontSize: "1rem",
-
-                mb: 3,
-
-                boxShadow: "none",
+                mb: 2,
 
                 "&:hover": {
-                bgcolor: "#431214",
-
-                boxShadow: "none",
+                bgcolor: "#441214",
                 },
             }}
             >
             Book Site Visit
             </Button>
 
-            <Typography
+            <Button
+            fullWidth
+            variant="outlined"
             sx={{
+                color: "#FFFFFF",
+
+                borderColor: "rgba(255,255,255,.35)",
+
+                py: 1.7,
+
+                borderRadius: "999px",
+
+                textTransform: "none",
+
+                "&:hover": {
+                borderColor: "#D4AF37",
+
                 color: "#D4AF37",
-
-                textAlign: "center",
-
-                letterSpacing: "3px",
-
-                fontSize: ".82rem",
-
-                textTransform: "uppercase",
+                },
             }}
             >
-            Luxury • Nature • Spirituality
-            </Typography>
+            Download Brochure
+            </Button>
         </Box>
-        </>
+        )}
+    </>
     );
-}
+    }
 
-export default Navbar;
+    export default Navbar;

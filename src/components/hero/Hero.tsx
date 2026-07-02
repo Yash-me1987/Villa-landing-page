@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
     Box,
     Button,
@@ -6,41 +7,154 @@ import {
     Typography,
 } from "@mui/material";
 
+import EnquiryForm from "../enquiryForm/EnquiryForm";
+
+import hero1 from "../../assets/hero/hero1.png";
+import hero2 from "../../assets/hero/hero2.png";
+import hero3 from "../../assets/hero/hero3.png";
+
 
 function Hero() {
+    const [currentImage, setCurrentImage] = useState(0);
+
+    const heroImages = [
+    hero1,
+    hero2,
+    hero3,
+    ];
+
+    const [fadeImage, setFadeImage] = useState(1);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+
+            setFadeImage(.5);
+
+            setTimeout(() => {
+
+                setCurrentImage((prev) =>
+                    (prev + 1) % heroImages.length
+                );
+
+                setFadeImage(1);
+
+            }, 700);
+
+        }, 6000);
+
+        return () => clearInterval(interval);
+
+    }, []);
+    
+    const [showForm, setShowForm] = useState(false);
+    
     return (
         <Box
         sx={{
+            width: "100%",
             minHeight: "100vh",
             position: "relative",
             overflow: "hidden",
 
-            backgroundImage: `
-            linear-gradient(
-                rgba(19,25,33,0.58),
-                rgba(19,25,33,0.58)
-            ),
-            url("https://res.cloudinary.com/dgdqeidxb/image/upload/v1782362591/WhatsApp_Image_2026-06-22_at_12.53.03_wfrgtw.jpg")
-            `,
-
-            backgroundSize: "cover",
-            backgroundPosition: {
-                xs: "65% center",
-                md: "center 22%",
-            },
-            backgroundRepeat: "no-repeat",
-
             display: "flex",
             alignItems: "center",
+            "&::after": {
+                content: '""',
+
+                position: "absolute",
+
+                left: 0,
+
+                right: 0,
+
+                bottom: 0,
+
+                height: "220px",
+
+                background:
+                    "linear-gradient(to bottom, transparent, rgba(19,25,33,.75))",
+
+                pointerEvents: "none",
+            },
         }}
         >
+
+        {/* Background Slideshow */}
+
+        <Box
+            sx={{
+                position: "absolute",
+
+                inset: 0,
+
+                zIndex: 0,
+
+                overflow: "hidden",
+            }}
+        >
+            <Box
+                component="img"
+                src={heroImages[currentImage]}
+                alt="Hero"
+
+                sx={{
+                    position: "absolute",
+
+                    inset: 0,
+
+                    width: "100%",
+
+                    height: "100%",
+
+                    objectFit: "cover",
+
+                    objectPosition: {
+                        xs: "68% center",
+                        md: "center center",
+                    },
+
+                    transform: fadeImage
+                        ? "scale(1.08)"
+                        : "scale(1.12)",
+
+                    opacity: fadeImage,
+
+                    transition:
+                        "opacity .7s ease-in-out, transform 6s linear",
+                }}
+            />
+
+            {/* Premium Gradient Overlay */}
+
+            <Box
+                sx={{
+                    position: "absolute",
+
+                    inset: 0,
+
+                    background: `
+                        linear-gradient(
+                            to bottom,
+                            rgba(19,25,33,.22),
+                            rgba(19,25,33,.38)
+                        )
+                    `,
+
+                    pointerEvents: "none",
+                }}
+            />
+            </Box>
+
         <Container
             maxWidth="xl"
             sx={{
+                position: "relative",
+
+                zIndex: 2,
                 py: {
                 xs: 15,
                 sm: 17,
-                md: 0,
+                md: 6,
             },
 
                 pl: {
@@ -55,8 +169,8 @@ function Hero() {
                 width: {
                 xs: "100%",
                 sm: "92%",
-                md: "46%",
-                lg: "42%",
+                md: "42%",
+                lg: "38%",
                 },
 
                 ml: {
@@ -97,9 +211,9 @@ function Hero() {
                 fontWeight: 500,
                 color: "#FFFFFF",
 
-                lineHeight: 1.15,
+                lineHeight: 1.08,
 
-                letterSpacing: "-0.5px",
+                letterSpacing: "-1.4px",
 
                 mb: 5,
 
@@ -141,11 +255,11 @@ function Hero() {
                 fontFamily: "'Playfair Display', serif",
                 color: "#FFFFFF",
 
-                lineHeight: 1.45,
+                lineHeight: 1.55,
 
                 mb: 3,
 
-                maxWidth:"560px",
+                maxWidth:"500px",
 
                 fontSize: {
                     xs: "1.15rem",
@@ -164,7 +278,7 @@ function Hero() {
 
                 color: "rgba(255,255,255,.90)",
 
-                lineHeight: 2,
+                lineHeight: 1.8,
 
                 maxWidth: "620px",
 
@@ -187,10 +301,11 @@ function Hero() {
                 xs: "column",
                 sm: "row",
                 }}
-                spacing={2.5}
+                spacing={2}
             >
                 <Button
                 variant="contained"
+                onClick={() => setShowForm(true)}
                 sx={{
                     bgcolor: "#58181A",
 
@@ -215,8 +330,14 @@ function Hero() {
 
                     boxShadow: "none",
 
+                    transition: ".3s ease",
+
                     "&:hover": {
-                    bgcolor: "#441214",
+                        bgcolor: "#441214",
+
+                        transform: "translateY(-2px)",
+
+                        boxShadow: "0 14px 30px rgba(88,24,26,.35)",
                     },
                 }}
                 >
@@ -246,11 +367,16 @@ function Hero() {
                     fontWeight: 600,
 
                     fontSize: "1rem",
+                    transition: ".3s ease",
 
                     "&:hover": {
-                    borderColor: "#D4AF37",
+                        borderColor: "#D4AF37",
 
-                    color: "#D4AF37",
+                        color: "#D4AF37",
+
+                        backgroundColor: "rgba(212,175,55,.06)",
+
+                        transform: "translateY(-2px)",
                     },
                 }}
                 >
@@ -259,7 +385,65 @@ function Hero() {
             </Stack>
                 </Box>
             </Container>
+
+            {/* Floating Enquiry Form */}
+
+            <Box
+                sx={{
+                    position: "absolute",
+
+                    top: "50%",
+
+                    right: showForm ? "5%" : "-120%",
+
+                    display: {
+                        xs: "none",
+                        lg: "block",
+                    },
+
+                    transform: "translateY(-50%)",
+
+                    transition: "right .65s ease",
+
+                    zIndex: 8,
+                }}
+            >
+                <EnquiryForm 
+                    onClose={() => setShowForm(false)}
+                />
+            </Box>
+
+            {/* Mobile Enquiry Form */}
+
+            {showForm && (
+                <Box
+                    sx={{
+                        display: {
+                            xs: "block",
+                            lg: "none",
+                        },
+
+                        position: "absolute",
+
+                        left: 0,
+
+                        right: 0,
+
+                        bottom: 0,
+
+                        px: 2,
+
+                        pb: 3,
+
+                        zIndex: 5,
+                    }}
+                >
+                    <EnquiryForm />
+                </Box>
+            )}
+
         </Box>
+            
     );
 }
 
