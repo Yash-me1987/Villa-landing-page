@@ -1,200 +1,511 @@
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+import { useState } from "react";
+
+import {
+    Box,
+    Container,
+    Typography,
+    Stack,
+    Paper,
+} from "@mui/material";
+
+import defaultImage from "../../assets/story/story-default.webp";
+import villasImage from "../../assets/story/story-villas.webp";
+import natureImage from "../../assets/story/story-nature.webp";
+import resortImage from "../../assets/story/story-resort.webp";
+import investmentImage from "../../assets/story/story-investment.webp";
+
+import VillaOutlinedIcon from "@mui/icons-material/VillaOutlined";
+import ParkOutlinedIcon from "@mui/icons-material/ParkOutlined";
+import DeckOutlinedIcon from "@mui/icons-material/DeckOutlined";
+import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
+
+const features = [
+    {
+        title: "Spacious Luxury Villas",
+        image: villasImage,
+        icon: <VillaOutlinedIcon />,
+        description:
+            "Thoughtfully designed villas featuring expansive layouts, timeless architecture and premium finishes crafted for luxurious everyday living.",
+    },
+
+    {
+        title: "Nature-Centric Living",
+        image: natureImage,
+        icon: <ParkOutlinedIcon />,
+        description:
+            "Wake up surrounded by lush landscapes, peaceful walking trails and the calming beauty of Maa Narmada every single day.",
+    },
+
+    {
+        title: "Resort Lifestyle",
+        image: resortImage,
+        icon: <DeckOutlinedIcon />,
+        description:
+            "Premium clubhouse, wellness spaces, leisure amenities and curated experiences that make every day feel like a luxurious getaway.",
+    },
+
+    {
+        title: "Future Ready Investment",
+        image: investmentImage,
+        icon: <TrendingUpOutlinedIcon />,
+        description:
+            "An address created for lasting appreciation, combining premium living with exceptional long-term investment potential.",
+    },
+];
 
 function Story() {
+
+    const [activeFeature, setActiveFeature] = useState(0);
+    const [imageVisible, setImageVisible] = useState(true);
+
+
+    const currentImage =
+        activeFeature === -1
+            ? defaultImage
+            : features[activeFeature].image;
+        
+    const changeFeature = (index: number) => {
+
+        if (index === activeFeature) return;
+
+        setImageVisible(false);
+
+
+
+        setTimeout(() => {
+
+            setActiveFeature(index);
+
+            requestAnimationFrame(() => {
+
+                setImageVisible(true);
+
+
+            });
+
+        },180);
+
+    };
+
     return (
+
         <Box
-        sx={{
-            bgcolor: "#F9F8F4",
-            py: {
-            xs: 8,
-            md: 14,
-            },
-        }}
+            id="story"
+            sx={{
+                bgcolor: "#ffffff",
+
+                py: {
+                    xs: 10,
+                    md: 16,
+                },
+
+                position: "relative",
+            }}
         >
-        <Container maxWidth="xl">
-            <Grid
-                container
-                spacing={{
-                    xs: 6,
-                    md: 10,
-                }}
+            <Container maxWidth="xl">
+
+                {/* ========================= */}
+                {/* TOP SECTION */}
+                {/* ========================= */}
+
+                <Box
+                    sx={{
+                        display: "grid",
+
+                        gridTemplateColumns: {
+                            xs: "1fr",
+                            lg: "1fr 1fr",
+                        },
+
+                        gap: {
+                            xs: 6,
+                            lg: 10,
+                        },
+
+                        alignItems: "center",
+                    }}
                 >
-                {/* Left Image */}
 
-                <Grid size={{ xs: 12, md: 6 }}>
-                    <Box
-                    sx={{
-                        overflow: "hidden",
-                        borderRadius: "28px",
-                    }}
-                    >
-                    <Box
-                        component="img"
-                        src="https://res.cloudinary.com/dgdqeidxb/image/upload/v1782362591/WhatsApp_Image_2026-06-22_at_12.53.03_wfrgtw.jpg"
-                        alt="Natraj Retreat"
+                    {/* LEFT IMAGE */}
 
+                    <Box
                         sx={{
-                        width: "100%",
-                        height: {
-                            xs: "320px",
-                            md: "620px",
-                        },
+                            borderRadius: "30px",
 
-                        objectFit: "cover",
+                            overflow: "hidden",
 
-                        display: "block",
-                        }}
-                    />
-                    </Box>
-                </Grid>
+                            boxShadow:
+                                "0 35px 80px rgba(15,23,42,.12)",
 
-                {/* Right Content */}
+                            background: "#454242",
 
-                <Grid size={{ xs: 12, md: 6 }}>
-                    <Typography
-                    sx={{
-                        color: "#D4AF37",
-
-                        textTransform: "uppercase",
-
-                        letterSpacing: "2px",
-
-                        fontFamily: "Poppins",
-
-                        fontSize: ".82rem",
-
-                        fontWeight: 600,
-
-                        mb: 2,
-                    }}
-                    >
-                    About Natraj Retreat
-                    </Typography>
-
-                    <Typography
-                    sx={{
-                        color: "#131921",
-
-                        fontFamily: "'Playfair Display', serif",
-
-                        fontWeight: 500,
-
-                        lineHeight: 1.2,
-
-                        mb: 3,
-
-                        fontSize: {
-                        xs: "2rem",
-                        md: "3rem",
-                        },
-                    }}
-                    >
-                    Crafted Around
-                    <br />
-                    Nature & Serenity
-                    </Typography>
-
-                    <Typography
-                    sx={{
-                        color: "rgba(19,25,33,.78)",
-
-                        fontFamily: "Poppins",
-
-                        lineHeight: 1.9,
-
-                        mb: 5,
-
-                        fontSize: {
-                        xs: ".95rem",
-                        md: "1rem",
-                        },
-                    }}
-                    >
-                    Natraj Retreat is designed for families seeking peace,
-                    premium living and a deeper connection with nature.
-                    Inspired by timeless architecture and surrounded by
-                    tranquil landscapes, it offers a lifestyle where every
-                    day feels like a retreat.
-                    </Typography>
-
-                    <Grid
-                    container
-                    spacing={2.5}
-                    >
-                                    {[
-                    {
-                        title: "Luxury Community",
-                        description:
-                            "Carefully planned premium villa development.",
-                        },
-                        {
-                        title: "Nature First",
-                        description:
-                            "Surrounded by peaceful landscapes and greenery.",
-                        },
-                        {
-                        title: "Prime Location",
-                        description:
-                            "Excellent connectivity with serene surroundings.",
-                        },
-                        {
-                        title: "Future Ready",
-                        description:
-                            "Designed for both living and long-term investment.",
-                        },
-                    ].map((item) => (
-                        <Grid size={{ xs: 12, sm: 6 }} key={item.title}>
-                        <Paper
-                            elevation={0}
-                            sx={{
-                            height: "100%",
-                            p: 3,
-                            borderRadius: "20px",
-                            border: "1px solid rgba(19,25,33,0.08)",
-                            transition: "0.3s ease",
-
-                            "&:hover": {
-                                transform: "translateY(-4px)",
-                                borderColor: "#D4AF37",
+                            height: {
+                                xs: 340,
+                                md: 500,
                             },
+                        }}
+                    >
+
+                        <Box
+                            component="img"
+                            src={currentImage}
+                            alt="Natraj Retreat"
+
+                            sx={{
+                                width: "100%",
+
+                                height: "100%",
+
+                                objectFit: "cover",
+
+                                opacity: imageVisible ? 1 : 0,
+
+                                transition:
+                                    "opacity .45s ease, transform .7s ease",
+
+                                "&:hover": {
+                                    transform: "scale(1.04)",
+                                },
+                            }}
+                        />
+
+                    </Box>
+
+                    {/* RIGHT CONTENT */}
+
+                    <Stack spacing={3}>
+
+                        <Typography
+                            sx={{
+                                color: "#D4AF37",
+
+                                textTransform: "uppercase",
+
+                                letterSpacing: "3px",
+
+                                fontWeight: 600,
+
+                                fontSize: ".82rem",
                             }}
                         >
-                            <Stack spacing={1.2}>
-                            <Typography
-                                sx={{
-                                fontFamily: "'Playfair Display', serif",
+                            About Natraj Retreat
+                        </Typography>
+
+                        <Typography
+                            sx={{
+                                fontFamily:
+                                    "'Playfair Display', serif",
+
                                 color: "#131921",
-                                fontSize: "1.2rem",
-                                fontWeight: 600,
+
+                                lineHeight: 1.08,
+
+                                fontWeight: 500,
+
+                                fontSize: {
+                                    xs: "2.7rem",
+                                    md: "4rem",
+                                },
+                            }}
+                        >
+                            Crafted Around
+                            <br />
+                            Nature &
+                            <br />
+                            Serenity
+                        </Typography>
+
+                        <Box
+                            sx={{
+                                width: 70,
+
+                                height: 3,
+
+                                bgcolor: "#D4AF37",
+
+                                borderRadius: 5,
+                            }}
+                        />
+
+                        <Typography
+                            sx={{
+                                color: "#4E5562",
+
+                                lineHeight: 2,
+
+                                fontSize: "1.05rem",
+
+                                maxWidth: 620,
+                            }}
+                        >
+                            Natraj Retreat is thoughtfully designed
+                            for those who seek more than just a home.
+                            Blending timeless architecture with
+                            nature-inspired planning, every space
+                            creates an atmosphere of peace,
+                            privacy and enduring luxury while
+                            remaining deeply connected to the
+                            sacred serenity of Maa Narmada.
+                        </Typography>
+
+                    </Stack>
+
+                </Box>
+
+                {/* ========================= */}
+                {/* FEATURE CARDS */}
+                {/* ========================= */}
+
+                <Box
+                    sx={{
+                        mt: {
+                            xs: 8,
+                            md: 10,
+                        },
+
+                        display: "grid",
+
+                        gridTemplateColumns: {
+                            xs: "1fr",
+                            sm: "repeat(2,1fr)",
+                            lg: "repeat(4,1fr)",
+                        },
+
+                        gap: 3,
+                    }}
+                >
+                    {features.map((feature, index) => (
+                        <Paper
+                            key={feature.title}
+                            elevation={0}
+                            onMouseEnter={() =>
+                                changeFeature(index)
+                            }
+
+                            onClick={() =>
+                                changeFeature(index)
+                            }
+                            sx={{
+                                p: 3,
+
+                                cursor: "pointer",
+
+                                borderRadius: "20px",
+
+                                background: "#FFFFFF",
+
+                                border:
+                                    activeFeature === index
+                                        ? "1px solid rgba(212,175,55,.45)"
+                                        : "1px solid rgba(0,0,0,.08)",
+
+                                boxShadow:
+                                    activeFeature === index
+                                        ? "0 18px 45px rgba(212,175,55,.16)"
+                                        : "0 8px 25px rgba(15,23,42,.05)",
+
+                                transition: ".35s ease",
+
+                                "&:hover": {
+                                    transform: "translateY(-8px)",
+
+                                    borderColor: "#D4AF37",
+
+                                    boxShadow:
+                                        "0 22px 55px rgba(212,175,55,.20)",
+                                },
+                            }}
+                        >
+                            <Box
+                                sx={{
+                                    width: 42,
+
+                                    height: 3,
+
+                                    bgcolor: "#D4AF37",
+
+                                    borderRadius: 10,
+
+                                    mb: 3,
+                                }}
+                            />
+
+                            <Box
+                                sx={{
+                                    color: "#D4AF37",
+
+                                    display: "flex",
+
+                                    alignItems: "center",
+
+                                    fontSize: "2rem",
+
+                                    mb: 2,
+
+                                    "& svg": {
+                                        fontSize: 34,
+                                    },
                                 }}
                             >
-                                {item.title}
+                                {feature.icon}
+                            </Box>
+
+                            <Typography
+                                sx={{
+                                    fontFamily:
+                                        "'Playfair Display', serif",
+
+                                    color: "#131921",
+
+                                    fontWeight: 600,
+
+                                    fontSize: "1.4rem",
+
+                                    lineHeight: 1.25,
+
+                                    mb: 2,
+                                }}
+                            >
+                                {feature.title}
                             </Typography>
 
                             <Typography
                                 sx={{
-                                fontFamily: "Poppins",
-                                color: "rgba(19,25,33,0.72)",
-                                fontSize: ".92rem",
-                                lineHeight: 1.7,
+                                    color: "#636B76",
+
+                                    lineHeight: 1.9,
+
+                                    fontSize: ".96rem",
+
+                                    display: "-webkit-box",
+
+                                    overflow: "hidden",
+
+                                    WebkitLineClamp: 2,
+
+                                    WebkitBoxOrient: "vertical",
                                 }}
                             >
-                                {item.description}
+                                {feature.description}
                             </Typography>
-                            </Stack>
                         </Paper>
-                        </Grid>
                     ))}
-                    </Grid>
-                </Grid>
-            </Grid>
-        </Container>
+                </Box>
+
+                {/* ========================= */}
+                {/* ACTIVE FEATURE PANEL */}
+                {/* ========================= */}
+
+                <Paper
+                    elevation={0}
+                    sx={{
+                        mt: {
+                            xs: 5,
+                            md: 6,
+                        },
+
+                        p: {
+                            xs: 3,
+                            md: 4,
+                        },
+
+                        borderRadius: "24px",
+
+                        background: "#FFFFFF",
+
+                        border: "1px solid rgba(0,0,0,.06)",
+
+                        boxShadow:
+                            "0 18px 45px rgba(15,23,42,.06)",
+
+                        transition: ".35s ease",
+                    }}
+                >
+                    <Stack
+                        direction="row"
+                        spacing={3}
+                        sx ={{
+                            alignItems: "center",
+                        }}
+                    >
+                        {/* Gold Icon */}
+
+                        <Box
+                            sx={{
+                                width: 58,
+
+                                height: 58,
+
+                                borderRadius: "50%",
+
+                                background:
+                                    "rgba(212,175,55,.12)",
+
+                                display: "flex",
+
+                                alignItems: "center",
+
+                                justifyContent: "center",
+
+                                flexShrink: 0,
+
+                                fontSize: "1.7rem",
+
+                                color: "#D4AF37",
+                            }}
+                        >
+                            {features[activeFeature].icon}
+                        </Box>
+
+                        {/* Text */}
+
+                        <Box>
+
+                            <Typography
+                                sx={{
+                                    fontFamily:
+                                        "'Playfair Display', serif",
+
+                                    color: "#131921",
+
+                                    fontWeight: 600,
+
+                                    fontSize: {
+                                        xs: "1.4rem",
+                                        md: "1.8rem",
+                                    },
+
+                                    mb: 1,
+
+                                    transition: ".35s ease",
+                                }}
+                            >
+                                {features[activeFeature].title}
+                            </Typography>
+
+                            <Typography
+                                sx={{
+                                    color: "#5F6772",
+
+                                    lineHeight: 1.9,
+
+                                    maxWidth: "900px",
+
+                                    transition: ".35s ease",
+                                }}
+                            >
+                                {features[activeFeature].description}
+                            </Typography>
+
+                        </Box>
+
+                    </Stack>
+                </Paper>
+
+            </Container>
+
         </Box>
+
     );
 }
 

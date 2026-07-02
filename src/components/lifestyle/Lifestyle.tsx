@@ -38,7 +38,7 @@ function Lifestyle() {
     return (
         <Box
         sx={{
-            bgcolor: "#F8F7F4",
+            bgcolor: "#F9F9F9",
             py: {
             xs: 10,
             md: 16,
