@@ -5,22 +5,29 @@ import Paper from "@mui/material/Paper";
 
 import Typography from "@mui/material/Typography";
 
+import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
+import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
+import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
+
 function Lifestyle() {
     const lifestyleCards = [
         {
-        title: "Morning Serenity",
-        description:
-            "Wake up surrounded by nature, fresh air and peaceful landscapes that make every morning feel refreshing.",
+            icon: <WbSunnyOutlinedIcon sx={{ fontSize: 30 }} />,
+            title: "Morning Serenity",
+            description:
+                "Wake up surrounded by nature, fresh air and peaceful landscapes that make every morning feel refreshing.",
         },
         {
-        title: "Community Living",
-        description:
-            "Beautifully planned shared spaces create opportunities to connect, celebrate and grow together.",
+            icon: <GroupsOutlinedIcon sx={{ fontSize: 30 }} />,
+            title: "Community Living",
+            description:
+                "Beautifully planned shared spaces create opportunities to connect, celebrate and grow together.",
         },
         {
-        title: "Nature & Wellness",
-        description:
-            "Walking trails, green surroundings and open spaces encourage a healthier and balanced lifestyle.",
+            icon: <SpaOutlinedIcon sx={{ fontSize: 30 }} />,
+            title: "Nature & Wellness",
+            description:
+                "Walking trails, green surroundings and open spaces encourage a healthier and balanced lifestyle.",
         },
     ];
 
@@ -259,59 +266,143 @@ function Lifestyle() {
             {/* Lifestyle Cards */}
 
             <Grid
-            container
-            spacing={{
-                xs: 3,
-                md: 4,
-            }}
+                container
+                spacing={{
+                    xs: 3,
+                    md: 4,
+                }}
             >
-            {lifestyleCards.map((item) => (
-            <Grid key={item.title} size={{ xs: 12, md: 4 }}>
-                <Paper
-                    elevation={0}
-                    sx={{
-                    height: "100%",
-                    p: {
-                        xs: 3,
-                        md: 4,
-                    },
-                    borderRadius: "24px",
-                    border: "1px solid rgba(19,25,33,.08)",
-                    bgcolor: "#FFFFFF",
-                    transition: ".3s ease",
-
-                    "&:hover": {
-                        transform: "translateY(-6px)",
-                        borderColor: "#D4AF37",
-                        boxShadow: "0 18px 40px rgba(0,0,0,.08)",
-                    },
-                    }}
-                >
-                    <Typography
-                    sx={{
-                        fontFamily: "'Playfair Display', serif",
-                        color: "#131921",
-                        fontSize: {
-                        xs: "1.8rem",
-                        md: "2rem",
-                        },
-                        mb: 2,
-                    }}
+                {lifestyleCards.map((item) => (
+                    <Grid
+                        key={item.title}
+                        size={{ xs: 12, md: 4 }}
                     >
-                    {item.title}
-                    </Typography>
+                        <Paper
+                            elevation={0}
+                            sx={{
+                                height: "100%",
 
-                    <Typography
-                    sx={{
-                        color: "rgba(19,25,33,.72)",
-                        lineHeight: 1.9,
-                    }}
-                    >
-                    {item.description}
-                    </Typography>
-                </Paper>
-                </Grid>
-            ))}
+                                p: {
+                                    xs: 3,
+                                    md: 4,
+                                },
+
+                                borderRadius: "24px",
+
+                                border: "1px solid rgba(19,25,33,.08)",
+
+                                bgcolor: "#FFFFFF",
+
+                                transition: ".35s ease",
+
+                                "&:hover": {
+                                    transform: "translateY(-10px)",
+
+                                    borderColor: "#D4AF37",
+
+                                    boxShadow: "0 24px 60px rgba(0,0,0,.10)",
+
+                                    "& .iconBox": {
+                                        transform: "rotate(-8deg) scale(1.08)",
+
+                                        bgcolor: "#D4AF37",
+
+                                        color: "#FFFFFF",
+                                    },
+
+                                    "& .learnArrow": {
+                                        transform: "translateX(6px)",
+                                    },
+                                },
+                            }}
+                        >
+                            <Box
+                                className="iconBox"
+                                sx={{
+                                    width: 56,
+                                    height: 56,
+
+                                    borderRadius: "16px",
+
+                                    bgcolor: "rgba(212,175,55,.08)",
+
+                                    display: "flex",
+
+                                    alignItems: "center",
+
+                                    justifyContent: "center",
+
+                                    fontSize: "1.6rem",
+
+                                    mb: 3,
+
+                                    transition: ".35s",
+                                }}
+                            >
+                                {item.icon}
+                            </Box>
+
+                            <Typography
+                                sx={{
+                                    fontFamily: "'Playfair Display', serif",
+
+                                    color: "#131921",
+
+                                    fontSize: {
+                                        xs: "1.7rem",
+                                        md: "2rem",
+                                    },
+
+                                    lineHeight: 1.2,
+
+                                    mb: 2,
+                                }}
+                            >
+                                {item.title}
+                            </Typography>
+
+                            <Typography
+                                sx={{
+                                    color: "rgba(19,25,33,.72)",
+
+                                    lineHeight: 1.9,
+
+                                    mb: 3,
+                                }}
+                            >
+                                {item.description}
+                            </Typography>
+
+                            <Box
+                                sx={{
+                                    display: "flex",
+
+                                    alignItems: "center",
+
+                                    gap: 1,
+
+                                    color: "#58181A",
+
+                                    fontWeight: 600,
+
+                                    transition: ".35s",
+                                }}
+                            >
+                                Learn More
+
+                                <Box
+                                    component="span"
+                                    className="learnArrow"
+                                    sx={{
+                                        transition: ".35s",
+                                    }}
+                                >
+                                    →
+                                </Box>
+                            </Box>
+                        </Paper>
+                    </Grid>
+                ))}
             </Grid>
 
             {/* Amenities */}
@@ -358,9 +449,23 @@ function Lifestyle() {
                     transition: ".3s",
 
                     "&:hover": {
-                        bgcolor: "#58181A",
-                        color: "#FFFFFF",
-                        borderColor: "#58181A",
+                        transform: "translateY(-10px)",
+
+                        borderColor: "#D4AF37",
+
+                        boxShadow: "0 24px 60px rgba(0,0,0,.10)",
+
+                        "& .iconBox": {
+                            transform: "rotate(-8deg) scale(1.08)",
+
+                            bgcolor: "#D4AF37",
+
+                            color: "#FFFFFF",
+                        },
+
+                        "& .learnArrow": {
+                            transform: "translateX(6px)",
+                        },
                     },
                     }}
                 >
