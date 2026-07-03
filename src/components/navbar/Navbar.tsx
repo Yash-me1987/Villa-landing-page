@@ -15,11 +15,11 @@ import CloseIcon from "@mui/icons-material/Close";
 import logoCrown from "../../assets/logos/logo-crown.png";
 
 const navItems = [
-    { label: "Story", id: "story" },
-    { label: "Lifestyle", id: "lifestyle" },
-    { label: "Villas", id: "villa" },
-    { label: "Location", id: "location" },
-    { label: "Gallery", id: "gallery" },
+    { label: "STORY", id: "story" },
+    { label: "LIFESTYLE", id: "lifestyle" },
+    { label: "VILLAS", id: "villa" },
+    { label: "LOCATION", id: "location" },
+    { label: "GALLERY", id: "gallery" },
 ];
 
 function Navbar() {

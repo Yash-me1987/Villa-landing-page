@@ -5,12 +5,18 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 
+import galleryHero from "../../assets/gallery/gallery-hero.webp";
+import gallery1 from "../../assets/gallery/gallery-1.webp";
+import gallery2 from "../../assets/gallery/gallery-2.webp";
+import gallery3 from "../../assets/gallery/gallery-3.webp";
+import gallery4 from "../../assets/gallery/gallery-4.webp";
+
 function Gallery() {
     const galleryImages = [
-        "https://res.cloudinary.com/dgdqeidxb/image/upload/v1782362591/WhatsApp_Image_2026-06-22_at_12.53.03_wfrgtw.jpg",
-        "https://res.cloudinary.com/dgdqeidxb/image/upload/v1782362598/WhatsApp_Image_2026-06-22_at_12.53.12_egi5gb.jpg",
-        "https://res.cloudinary.com/dgdqeidxb/image/upload/v1782362597/WhatsApp_Image_2026-06-22_at_12.53.11_lo5gxi.jpg",
-        "https://res.cloudinary.com/dgdqeidxb/image/upload/v1782362591/WhatsApp_Image_2026-06-22_at_12.53.03_wfrgtw.jpg",
+        gallery1,
+        gallery2,
+        gallery3,
+        gallery4,
     ];
 
     const investmentPoints = [
@@ -97,31 +103,84 @@ function Gallery() {
             {/* Featured Image */}
 
             <Paper
-            elevation={0}
-            sx={{
-                overflow: "hidden",
-                borderRadius: "30px",
-                mb: {
-                xs: 6,
-                md: 8,
-                },
-            }}
+                elevation={0}
+                sx={{
+                    position: "relative",
+
+                    overflow: "hidden",
+
+                    borderRadius: "30px",
+
+                    mb: {
+                        xs: 6,
+                        md: 8,
+                    },
+
+                    cursor: "pointer",
+
+                    "&:hover img": {
+                        transform: "scale(1.04)",
+                    },
+
+                    "&:hover .heroOverlay": {
+                        opacity: 1,
+                    },
+                }}
             >
             <Box
                 component="img"
-                src={galleryImages[0]}
+                src={galleryHero}
                 alt="Natraj Retreat"
-
                 sx={{
-                width: "100%",
-                height: {
-                    xs: 260,
-                    md: 620,
-                },
-                objectFit: "cover",
-                display: "block",
+                    width: "100%",
+
+                    height: {
+                        xs: 260,
+                        md: 620,
+                    },
+
+                    objectFit: "cover",
+
+                    display: "block",
+
+                    transition: "transform .8s ease",
                 }}
             />
+
+            <Box
+                className="heroOverlay"
+                sx={{
+                    position: "absolute",
+
+                    inset: 0,
+
+                    display: "flex",
+
+                    alignItems: "center",
+
+                    justifyContent: "center",
+
+                    bgcolor: "rgba(19,25,33,.28)",
+
+                    opacity: 0,
+
+                    transition: ".35s ease",
+                }}
+            >
+                <Typography
+                    sx={{
+                        color: "#FFFFFF",
+
+                        fontSize: "1.2rem",
+
+                        fontWeight: 600,
+
+                        letterSpacing: "2px",
+                    }}
+                >
+                    Explore Gallery
+                </Typography>
+            </Box>
             </Paper>
 
             {/* Gallery Grid */}
@@ -138,29 +197,77 @@ function Gallery() {
                 <Paper
                     elevation={0}
                     sx={{
-                    overflow: "hidden",
-                    borderRadius: "22px",
+                        position: "relative",
+
+                        overflow: "hidden",
+
+                        borderRadius: "22px",
+
+                        cursor: "pointer",
+
+                        "&:hover img": {
+                            transform: "scale(1.08)",
+                        },
+
+                        "&:hover .galleryOverlay": {
+                            opacity: 1,
+                        },
                     }}
                 >
                     <Box
-                    component="img"
-                    src={image}
-                    alt={`Gallery ${index + 1}`}
-                    sx={{
-                        width: "100%",
-                        height: {
-                        xs: 150,
-                        md: 220,
-                        },
-                        objectFit: "cover",
-                        display: "block",
-                        transition: ".4s",
+                        component="img"
+                        src={image}
+                        alt={`Gallery ${index + 1}`}
+                        sx={{
+                            width: "100%",
 
-                        "&:hover": {
-                        transform: "scale(1.06)",
-                        },
-                    }}
+                            height: {
+                                xs: 150,
+                                md: 220,
+                            },
+
+                            objectFit: "cover",
+
+                            display: "block",
+
+                            transition: "transform .6s ease",
+                        }}
                     />
+
+                    <Box
+                        className="galleryOverlay"
+                        sx={{
+                            position: "absolute",
+
+                            inset: 0,
+
+                            display: "flex",
+
+                            alignItems: "center",
+
+                            justifyContent: "center",
+
+                            bgcolor: "rgba(19,25,33,.45)",
+
+                            opacity: 0,
+
+                            transition: ".35s ease",
+                        }}
+                    >
+                        <Typography
+                            sx={{
+                                color: "#FFFFFF",
+
+                                fontWeight: 600,
+
+                                letterSpacing: "1px",
+
+                                fontSize: ".95rem",
+                            }}
+                        >
+                            View Image
+                        </Typography>
+                    </Box>
                 </Paper>
                 </Grid>
             ))}
