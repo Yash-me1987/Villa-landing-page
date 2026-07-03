@@ -19,7 +19,7 @@ function Lifestyle() {
         },
         {
             icon: <GroupsOutlinedIcon sx={{ fontSize: 30 }} />,
-            title: "Community Living",
+            title: "Community Living", 
             description:
                 "Beautifully planned shared spaces create opportunities to connect, celebrate and grow together.",
         },
@@ -135,7 +135,8 @@ function Lifestyle() {
             <Box
             sx={{
                 overflow: "hidden",
-                borderRadius: "32px",
+                borderRadius: "40px",
+                boxShadow: "0 35px 80px rgba(15,23,42,.14)",    
                 mb: {
                 xs: 8,
                 md: 10,
@@ -153,6 +154,10 @@ function Lifestyle() {
                     xs: 280,
                     sm: 420,
                     md: 620,
+                },
+                transition: "transform 8s ease",
+                "&:hover": {
+                    transform: "scale(1.05)",
                 },
                 objectFit: "cover",
                 display: "block",
@@ -416,18 +421,56 @@ function Lifestyle() {
                 textAlign: "center",
             }}
             >
-            <Typography
+            
+            <Box
                 sx={{
-                color: "#58181A",
-                letterSpacing: "2px",
-                textTransform: "uppercase",
-                fontWeight: 600,
-                fontSize: ".82rem",
-                mb: 5,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 3,
+                    mb: 5,
                 }}
             >
-                Premium Amenities
-            </Typography>
+                <Box
+                    sx={{
+                        width: {
+                            xs: 60,
+                            md: 120,
+                        },
+                        height: "1px",
+                        bgcolor: "rgba(19,25,33,.12)",
+                    }}
+                />
+
+                <Typography
+                    sx={{
+                        color: "#58181A",
+
+                        letterSpacing: "3px",
+
+                        textTransform: "uppercase",
+
+                        fontWeight: 600,
+
+                        fontSize: ".82rem",
+
+                        whiteSpace: "nowrap",
+                    }}
+                >
+                    Premium Amenities
+                </Typography>
+
+                <Box
+                    sx={{
+                        width: {
+                            xs: 60,
+                            md: 120,
+                        },
+                        height: "1px",
+                        bgcolor: "rgba(19,25,33,.12)",
+                    }}
+                />
+            </Box>
 
             <Box
                 sx={{
@@ -441,41 +484,61 @@ function Lifestyle() {
                 <Box
                     key={item}
                     sx={{
-                    px: 3,
-                    py: 1.5,
-                    borderRadius: "40px",
-                    bgcolor: "#FFFFFF",
-                    border: "1px solid rgba(19,25,33,.08)",
-                    transition: ".3s",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 1.2,
 
-                    "&:hover": {
-                        transform: "translateY(-10px)",
+                        px: 3.2,
+                        py: 1.4,
 
-                        borderColor: "#D4AF37",
+                        borderRadius: "999px",
 
-                        boxShadow: "0 24px 60px rgba(0,0,0,.10)",
+                        bgcolor: "#FFFFFF",
 
-                        "& .iconBox": {
-                            transform: "rotate(-8deg) scale(1.08)",
+                        border: "1px solid rgba(19,25,33,.07)",
+
+                        boxShadow: "0 4px 15px rgba(15,23,42,.04)",
+
+                        transition: "all .35s ease",
+
+                        cursor: "default",
+
+                        "&:hover": {
+                            transform: "translateY(-4px)",
+
+                            borderColor: "#D4AF37",
+
+                            background: "#FFFDF8",
+
+                            boxShadow: "0 12px 30px rgba(15,23,42,.08)",
+                        },
+                    }}
+                >
+                    <Box
+                        sx={{
+                            width: 7,
+                            height: 7,
+
+                            borderRadius: "50%",
 
                             bgcolor: "#D4AF37",
 
-                            color: "#FFFFFF",
-                        },
+                            flexShrink: 0,
+                        }}
+                    />
 
-                        "& .learnArrow": {
-                            transform: "translateX(6px)",
-                        },
-                    },
-                    }}
-                >
                     <Typography
-                    sx={{
-                        fontSize: ".92rem",
-                        fontWeight: 500,
-                    }}
+                        sx={{
+                            color: "#131921",
+
+                            fontWeight: 500,
+
+                            fontSize: ".94rem",
+
+                            letterSpacing: ".2px",
+                        }}
                     >
-                    {item}
+                        {item}
                     </Typography>
                 </Box>
                 ))}
@@ -499,9 +562,7 @@ function Lifestyle() {
                     },
                 }}
                 >
-                Designed around nature, luxury and meaningful community
-                experiences, every corner of Natraj Retreat encourages a
-                peaceful and fulfilling lifestyle.
+                Every experience at Natraj Retreat has been thoughtfully crafted to blend luxury, nature and timeless living, creating a community where every day feels extraordinary.
                 </Typography>
         </Container>
         </Box>
