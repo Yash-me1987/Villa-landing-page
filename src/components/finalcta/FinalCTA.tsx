@@ -1,280 +1,620 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import Divider from "@mui/material/Divider";
-import Stack from "@mui/material/Stack";
+import Grid from "@mui/material/Grid";
+import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 
-function FinalCTA() {
+import logo from "../../assets/logos/logo-full.png";
+import footerBg from "../../assets/gallery/gallery-hero.webp";
+
+function Footer() {
+
+    const quickLinks = [
+        "Home",
+        "Story",
+        "Lifestyle",
+        "Signature Villas",
+        "Location",
+        "Gallery",
+    ];
+
     return (
-        <Box
-        sx={{
-            position: "relative",
-            overflow: "hidden",
-            py: {
-            xs: 10,
-            md: 14,
-            },
-        }}
-        >
-        {/* Background */}
 
         <Box
             sx={{
-            position: "absolute",
-            inset: 0,
+                position: "relative",
 
-            backgroundImage:
-                "linear-gradient(rgba(19,25,33,.82), rgba(19,25,33,.82)), url('https://res.cloudinary.com/dgdqeidxb/image/upload/v1782362598/WhatsApp_Image_2026-06-22_at_12.53.12_egi5gb.jpg')",
+                overflow: "hidden",
 
-            backgroundPosition: "center",
+                bgcolor: "#131921",
 
-            backgroundSize: "cover",
-
-            zIndex: -1,
-            }}
-        />
-
-        <Container maxWidth="md">
-
-            <Stack
-            spacing={4}
-            sx={{
-                alignItems: "center",
-                textAlign: "center",
-            }}
-            >
-            <Typography
-                sx={{
-                color: "#D4AF37",
-                letterSpacing: "4px",
-                textTransform: "uppercase",
-                fontWeight: 600,
-                fontSize: ".82rem",
-                }}
-            >
-                Begin Your Extraordinary Life
-            </Typography>
-
-            <Typography
-                sx={{
-                fontFamily: "'Playfair Display', serif",
                 color: "#FFFFFF",
-                lineHeight: 1.1,
-                fontWeight: 500,
-                fontSize: {
-                    xs: "2.7rem",
-                    md: "4.8rem",
+
+                pt: {
+                    xs: 10,
+                    md: 14,
                 },
-                }}
-            >
-                Live Beside
-                <br />
-                Maa Narmada.
-            </Typography>
+            }}
+        >
 
-            <Typography
+            {/* Background Image */}
+
+            <Box
+                component="img"
+                src={footerBg}
+                alt="Footer Background"
+
                 sx={{
-                color: "rgba(255,255,255,.80)",
-                maxWidth: "650px",
-                lineHeight: 1.9,
-                fontSize: {
-                    xs: "1rem",
-                    md: "1.08rem",
-                },
-                }}
-            >
-                Premium 3 BHK villas designed for families seeking
-                luxury, nature and a timeless lifestyle in one
-                extraordinary destination.
-            </Typography>
+                    position: "absolute",
 
-            <Stack
-                direction={{
-                xs: "column",
-                sm: "row",
-                }}
-                spacing={2}
-                sx={{
-                width: "100%",
-                justifyContent: "center",
-                }}
-            >
-                <Button
-                variant="contained"
-                sx={{
-                    bgcolor: "#58181A",
-                    px: 5,
-                    py: 1.6,
-                    borderRadius: "999px",
-                    textTransform: "none",
-                    fontSize: "1rem",
+                    inset: 0,
 
-                    "&:hover": {
-                    bgcolor: "#431214",
-                    },
-                }}
-                >
-                Book Site Visit
-                </Button>
+                    width: "100%",
 
-                <Button
-                variant="outlined"
-                sx={{
-                    borderColor: "#FFFFFF",
-                    color: "#FFFFFF",
-                    px: 5,
-                    py: 1.6,
-                    borderRadius: "999px",
-                    textTransform: "none",
+                    height: "100%",
 
-                    "&:hover": {
-                    borderColor: "#D4AF37",
-                    color: "#D4AF37",
-                    },
-                }}
-                >
-                Download Brochure
-                </Button>
-            </Stack>
+                    objectFit: "cover",
 
-            <Divider
-                sx={{
-                width: "100%",
-                borderColor: "rgba(255,255,255,.12)",
-                mt: 3,
+                    opacity: .18,
+
+                    pointerEvents: "none",
                 }}
             />
-          {/* Mini Footer */}
 
-            <Stack
-                direction={{
-                xs: "column",
-                md: "row",
-                }}
-                spacing={{
-                xs: 3,
-                md: 6,
-                }}
-                sx={{
-                width: "100%",
-                justifyContent: "center",
-                alignItems: "center",
-                py: 2,
-                }}
-            >
-                <Typography
-                sx={{
-                    color: "rgba(255,255,255,.78)",
-                    fontSize: ".95rem",
-                }}
-                >
-                📞 7909937484
-                </Typography>
-
-                <Typography
-                sx={{
-                    color: "rgba(255,255,255,.78)",
-                    fontSize: ".95rem",
-                    textAlign: "center",
-                }}
-                >
-                ✉ smbinfratechsales01@gmail.com
-                </Typography>
-
-                <Button
-                variant="text"
-                href="https://maps.app.goo.gl/DSgjsscXPbQMsWCq7?g_st=aw"
-                target="_blank"
-                sx={{
-                    color: "#D4AF37",
-                    textTransform: "none",
-                    fontWeight: 600,
-
-                    "&:hover": {
-                    bgcolor: "transparent",
-                    color: "#FFFFFF",
-                    },
-                }}
-                >
-                📍 View Location
-                </Button>
-            </Stack>
-
-            <Divider
-                sx={{
-                width: "100%",
-                borderColor: "rgba(255,255,255,.10)",
-                }}
-            />
+            {/* Dark Overlay */}
 
             <Box
                 sx={{
-                width: "100%",
-                pt: 3,
-                display: "flex",
-                flexDirection: {
-                    xs: "column",
-                    md: "row",
-                },
-                justifyContent: "space-between",
-                alignItems: "center",
-                gap: 2,
+                    position: "absolute",
+
+                    inset: 0,
+
+                    bgcolor: "rgba(19,25,33,.82)",
+                }}
+            />
+
+            <Container
+                maxWidth="xl"
+                sx={{
+                    position: "relative",
+                    zIndex: 2,
                 }}
             >
-                <Box
-                sx={{
-                    textAlign: {
-                    xs: "center",
-                    md: "left",
-                    },
-                }}
-                >
-                <Typography
-                    sx={{
-                    fontFamily: "'Playfair Display', serif",
-                    color: "#FFFFFF",
-                    fontSize: {
-                        xs: "1.4rem",
-                        md: "1.7rem",
-                    },
-                    mb: .5,
-                    }}
-                >
-                    NATRAJ RETREAT
-                </Typography>
 
-                <Typography
-                    sx={{
-                    color: "#D4AF37",
-                    fontSize: ".78rem",
-                    letterSpacing: "2px",
-                    textTransform: "uppercase",
+                <Grid
+                    container
+                    spacing={{
+                        xs: 8,
+                        md: 6,
                     }}
                 >
-                    Luxury • Nature • Spirituality
-                </Typography>
+
+                    {/* Brand */}
+
+                    <Grid
+                        size={{
+                            xs: 12,
+                            md: 5,
+                        }}
+                    >
+
+                        <Box
+                            component="img"
+                            src={logo}
+                            alt="Natraj Retreat"
+
+                            sx={{
+                                width: 210,
+
+                                mb: 4,
+                            }}
+                        />
+
+                        <Typography
+                            sx={{
+                                fontFamily:
+                                    "'Playfair Display', serif",
+
+                                fontSize: {
+                                    xs: "2.2rem",
+                                    md: "3rem",
+                                },
+
+                                lineHeight: 1.15,
+
+                                mb: 3,
+                            }}
+                        >
+                            Luxury Villas
+                            <br />
+                            Inspired By Nature.
+                        </Typography>
+
+                        <Typography
+                            sx={{
+                                color: "rgba(255,255,255,.72)",
+
+                                lineHeight: 1.9,
+
+                                maxWidth: "430px",
+                            }}
+                        >
+                            Thoughtfully crafted residences where
+                            timeless architecture, nature and
+                            investment value come together to
+                            create an extraordinary lifestyle.
+                        </Typography>
+
+                    </Grid>
+
+                    {/* Quick Links */}
+
+                    <Grid
+                        size={{
+                            xs: 6,
+                            md: 3,
+                        }}
+                    >
+
+                        <Typography
+                            sx={{
+                                color: "#D4AF37",
+
+                                textTransform: "uppercase",
+
+                                letterSpacing: "3px",
+
+                                fontWeight: 600,
+
+                                fontSize: ".82rem",
+
+                                mb: 3,
+                            }}
+                        >
+                            Quick Links
+                        </Typography>
+
+                        <Box
+                            sx={{
+                                display: "flex",
+
+                                flexDirection: "column",
+
+                                gap: 2,
+                            }}
+                        >
+
+                            {quickLinks.map((item) => (
+
+                                <Link
+                                    key={item}
+
+                                    underline="none"
+
+                                    href="#"
+
+                                    color="inherit"
+
+                                    sx={{
+
+                                        color:
+                                            "rgba(255,255,255,.72)",
+
+                                        transition: ".3s",
+
+                                        width: "fit-content",
+
+                                        "&:hover": {
+
+                                            color: "#D4AF37",
+
+                                            transform:
+                                                "translateX(6px)",
+                                        },
+                                    }}
+                                >
+                                    {item}
+                                </Link>
+
+                            ))}
+
+                        </Box>
+
+                    </Grid>
+
+                    {/* Contact */}
+
+                    <Grid
+                        size={{
+                            xs: 6,
+                            md: 4,
+                        }}
+                    >
+
+                        <Typography
+                            sx={{
+                                color: "#D4AF37",
+
+                                textTransform: "uppercase",
+
+                                letterSpacing: "3px",
+
+                                fontWeight: 600,
+
+                                fontSize: ".82rem",
+
+                                mb: 3,
+                            }}
+                        >
+                            Contact
+                        </Typography>
+
+                        <Box
+                            sx={{
+                                display: "flex",
+
+                                flexDirection: "column",
+
+                                gap: 3,
+
+                                color: "rgba(255,255,255,.72)",
+                            }}
+                        >
+
+                            <Box>
+
+                                <Typography
+                                    sx={{
+                                        color: "#FFFFFF",
+
+                                        fontWeight: 600,
+
+                                        mb: .7,
+                                    }}
+                                >
+                                    Phone
+                                </Typography>
+
+                                <Typography>
+                                    +91 XXXXX XXXXX
+                                </Typography>
+
+                            </Box>
+
+                            <Box>
+
+                                <Typography
+                                    sx={{
+                                        color: "#FFFFFF",
+
+                                        fontWeight: 600,
+
+                                        mb: .7,
+                                    }}
+                                >
+                                    Email
+                                </Typography>
+
+                                <Typography>
+                                    info@natrajretreat.com
+                                </Typography>
+
+                            </Box>
+
+                            <Box>
+
+                                <Typography
+                                    sx={{
+                                        color: "#FFFFFF",
+
+                                        fontWeight: 600,
+
+                                        mb: .7,
+                                    }}
+                                >
+                                    Address
+                                </Typography>
+
+                                <Typography>
+                                    Mandaleshwar,
+                                    Madhya Pradesh,
+                                    India
+                                </Typography>
+
+                            </Box>
+
+                        </Box>
+
+                    </Grid>
+
+                </Grid>
+
+                {/* CTA */}
+
+                <Box
+                    sx={{
+                        mt: {
+                            xs: 10,
+                            md: 14,
+                        },
+
+                        pt: {
+                            xs: 8,
+                            md: 10,
+                        },
+
+                        borderTop:
+                            "1px solid rgba(255,255,255,.10)",
+
+                        textAlign: "center",
+                    }}
+                >
+
+                    <Typography
+                        sx={{
+                            fontFamily:
+                                "'Playfair Display', serif",
+
+                            color: "#FFFFFF",
+
+                            lineHeight: 1.2,
+
+                            fontWeight: 500,
+
+                            fontSize: {
+                                xs: "2.2rem",
+                                md: "4rem",
+                            },
+
+                            mb: 3,
+                        }}
+                    >
+                        Ready To Experience
+                        <br />
+                        Natraj Retreat?
+                    </Typography>
+
+                    <Typography
+                        sx={{
+                            color:
+                                "rgba(255,255,255,.72)",
+
+                            maxWidth: "720px",
+
+                            mx: "auto",
+
+                            lineHeight: 1.9,
+
+                            mb: 5,
+                        }}
+                    >
+                        Schedule your private site visit and
+                        discover a lifestyle where luxury,
+                        nature and timeless architecture
+                        come together.
+                    </Typography>
+
+                    <Box
+                        sx={{
+                            display: "flex",
+
+                            flexDirection: {
+                                xs: "column",
+                                sm: "row",
+                            },
+
+                            justifyContent: "center",
+
+                            gap: 2,
+                        }}
+                    >
+
+                        <Button
+                            variant="contained"
+
+                            sx={{
+                                bgcolor: "#D4AF37",
+
+                                color: "#131921",
+
+                                px: 5,
+
+                                py: 1.8,
+
+                                borderRadius: "999px",
+
+                                textTransform: "none",
+
+                                fontWeight: 600,
+
+                                fontSize: "1rem",
+
+                                boxShadow:
+                                    "0 18px 45px rgba(212,175,55,.25)",
+
+                                "&:hover": {
+                                    bgcolor: "#E2BC48",
+
+                                    transform:
+                                        "translateY(-3px)",
+                                },
+                            }}
+                        >
+                            Schedule Site Visit
+                        </Button>
+
+                        <Button
+                            variant="outlined"
+
+                            sx={{
+                                color: "#FFFFFF",
+
+                                borderColor:
+                                    "rgba(255,255,255,.25)",
+
+                                px: 5,
+
+                                py: 1.8,
+
+                                borderRadius: "999px",
+
+                                textTransform: "none",
+
+                                fontWeight: 600,
+
+                                fontSize: "1rem",
+
+                                "&:hover": {
+                                    borderColor: "#D4AF37",
+
+                                    color: "#D4AF37",
+
+                                    background:
+                                        "rgba(212,175,55,.05)",
+                                },
+                            }}
+                        >
+                            Call Now
+                        </Button>
+
+                    </Box>
+
+                </Box>
+                {/* Bottom Bar */}
+
+                <Box
+                    sx={{
+                        mt: {
+                            xs: 8,
+                            md: 10,
+                        },
+
+                        py: 4,
+
+                        borderTop:
+                            "1px solid rgba(255,255,255,.08)",
+
+                        display: "flex",
+
+                        flexDirection: {
+                            xs: "column",
+                            md: "row",
+                        },
+
+                        alignItems: "center",
+
+                        justifyContent: "space-between",
+
+                        gap: 3,
+                    }}
+                >
+
+                    <Typography
+                        sx={{
+                            color: "rgba(255,255,255,.60)",
+
+                            fontSize: ".92rem",
+
+                            textAlign: {
+                                xs: "center",
+                                md: "left",
+                            },
+                        }}
+                    >
+                        © 2026 Natraj Retreat. All Rights Reserved.
+                    </Typography>
+
+                    <Box
+                        sx={{
+                            display: "flex",
+
+                            flexWrap: "wrap",
+
+                            justifyContent: "center",
+
+                            gap: 3,
+                        }}
+                    >
+
+                        <Link
+                            href="#"
+
+                            underline="none"
+
+                            sx={{
+                                color:
+                                    "rgba(255,255,255,.60)",
+
+                                fontSize: ".92rem",
+
+                                transition: ".3s",
+
+                                "&:hover": {
+                                    color: "#D4AF37",
+                                },
+                            }}
+                        >
+                            Privacy Policy
+                        </Link>
+
+                        <Link
+                            href="#"
+
+                            underline="none"
+
+                            sx={{
+                                color:
+                                    "rgba(255,255,255,.60)",
+
+                                fontSize: ".92rem",
+
+                                transition: ".3s",
+
+                                "&:hover": {
+                                    color: "#D4AF37",
+                                },
+                            }}
+                        >
+                            Terms & Conditions
+                        </Link>
+
+                    </Box>
+
+                    <Typography
+                        sx={{
+                            color: "rgba(255,255,255,.60)",
+
+                            fontSize: ".92rem",
+
+                            textAlign: {
+                                xs: "center",
+                                md: "right",
+                            },
+                        }}
+                    >
+                        Developed by
+                        <Box
+                            component="span"
+                            sx={{
+                                color: "#D4AF37",
+
+                                fontWeight: 600,
+
+                                ml: .8,
+                            }}
+                        >
+                            SMB Infratech
+                        </Box>
+                    </Typography>
+
                 </Box>
 
-                <Typography
-                sx={{
-                    color: "rgba(255,255,255,.55)",
-                    fontSize: ".88rem",
-                    textAlign: {
-                    xs: "center",
-                    md: "right",
-                    },
-                }}
-                >
-                © 2026 SMB Infratech. All Rights Reserved.
-                </Typography>
-            </Box>
+            </Container>
 
-            </Stack>
-
-        </Container>
         </Box>
+
     );
 }
 
-export default FinalCTA;
+export default Footer;
