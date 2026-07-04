@@ -40,7 +40,7 @@ function Hero() {
                     setFadeImage(1);
                 });
 
-            }, 600);
+            }, 650);
 
         }, 7000);
 
@@ -151,8 +151,8 @@ function Hero() {
                     background: `
                         linear-gradient(
                             to bottom,
-                            rgba(19,25,33,.12),
-                            rgba(19,25,33,.18)
+                            rgba(19,25,33,.42),
+                            rgba(19,25,33,.48)
                         )
                     `,
 
@@ -206,17 +206,17 @@ function Hero() {
                 fontFamily: "Poppins",
                 textTransform: "uppercase",
                 letterSpacing: "2.8px",
-                fontWeight: 500,
+                fontWeight: 600,
 
-                mb: 2,
+                mb: 1.5,
 
                 fontSize: {
-                    xs: ".72rem",
-                    md: ".82rem",
+                    xs: ".90rem",
+                    md: ".92rem",
                 },
                 }}
             >
-                Luxury Villa Community
+                        Luxury Villa Community
             </Typography>
 
             {/* Heading */}
