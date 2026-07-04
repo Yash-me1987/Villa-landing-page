@@ -52,6 +52,7 @@ function Hero() {
     
     return (
         <Box
+        id="hero"
         sx={{
             width: "100%",
             minHeight: "100vh",

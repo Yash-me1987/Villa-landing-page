@@ -30,6 +30,7 @@ function Gallery() {
 
     return (
         <Box
+        id="gallery"
         sx={{
             bgcolor: "#F8F6F2",
             py: {

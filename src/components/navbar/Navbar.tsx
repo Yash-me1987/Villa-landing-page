@@ -15,21 +15,57 @@ import CloseIcon from "@mui/icons-material/Close";
 import logoCrown from "../../assets/logos/logo-crown.png";
 
 const navItems = [
+    { label: "HOME", id: "hero" },
     { label: "STORY", id: "story" },
     { label: "LIFESTYLE", id: "lifestyle" },
     { label: "VILLAS", id: "villa" },
     { label: "LOCATION", id: "location" },
     { label: "GALLERY", id: "gallery" },
+    { label: "CONTACT", id: "footer" },
 ];
 
 function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
 
     const [scrolled, setScrolled] = useState(false);
+    const [activeSection, setActiveSection] = useState("hero");
 
     useEffect(() => {
         const handleScroll = () => {
         setScrolled(window.scrollY > window.innerHeight - 100);
+            console.log({
+                scroll: window.scrollY,
+                hero: document.getElementById("hero")?.offsetTop,
+                story: document.getElementById("story")?.offsetTop,
+                lifestyle: document.getElementById("lifestyle")?.offsetTop,
+                villa: document.getElementById("villa")?.offsetTop,
+                location: document.getElementById("location")?.offsetTop,
+                gallery: document.getElementById("gallery")?.offsetTop,
+            });
+            
+        const sections = [
+                "hero",
+                "story",
+                "lifestyle",
+                "villa",
+                "location",
+                "gallery",
+                "footer",
+            ];
+
+            let current = "hero";
+
+            for (const id of sections) {
+                const section = document.getElementById(id);
+
+                if (!section) continue;
+
+                if (window.scrollY >= section.offsetTop - 140) {
+                    current = id;
+                }
+            }
+
+            setActiveSection(current);
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -44,9 +80,9 @@ function Navbar() {
 
         if (!element) return;
 
-        element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
+        window.scrollTo({
+            top: element.offsetTop - 80,
+            behavior: "smooth",
         });
 
         setMobileOpen(false);
@@ -170,7 +206,10 @@ function Navbar() {
                     sx={{
                     cursor: "pointer",
 
-                    color: "#FFFFFF",
+                    color:
+                        activeSection === item.id
+                            ? "#D4AF37"
+                            : "#FFFFFF",
 
                     fontFamily: "Poppins",
 
@@ -191,7 +230,10 @@ function Navbar() {
 
                         bottom: -8,
 
-                        width: 0,
+                        width:
+                            activeSection === item.id
+                                ? "100%"
+                                : 0,
 
                         height: 2,
 
@@ -217,9 +259,7 @@ function Navbar() {
             
 
             <Button
-                onClick={() => {
-                // Hook this to the enquiry panel later
-                }}
+                onClick={() => scrollToSection("footer")}
                 variant="contained"
                 sx={{
                 display: {
@@ -382,6 +422,7 @@ function Navbar() {
             <Button
             fullWidth
             variant="contained"
+            onClick={() => scrollToSection("footer")}
             sx={{
                 bgcolor: "#58181A",
 
@@ -406,6 +447,9 @@ function Navbar() {
             <Button
             fullWidth
             variant="outlined"
+            onClick={() => {
+                window.open("/brochure.pdf", "_blank");
+            }}
             sx={{
                 color: "#FFFFFF",
 

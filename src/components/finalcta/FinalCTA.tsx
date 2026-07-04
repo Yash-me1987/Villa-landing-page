@@ -8,6 +8,8 @@ import Typography from "@mui/material/Typography";
 import logo from "../../assets/logos/logo-full.png";
 import footerBg from "../../assets/gallery/gallery-hero.webp";
 
+import Divider from "@mui/material/Divider";
+
 function Footer() {
 
     const quickLinks = [
@@ -22,6 +24,7 @@ function Footer() {
     return (
 
         <Box
+            id="footer"
             sx={{
                 position: "relative",
 
@@ -56,7 +59,7 @@ function Footer() {
 
                     objectFit: "cover",
 
-                    opacity: .18,
+                    opacity: .28,
 
                     pointerEvents: "none",
                 }}
@@ -70,7 +73,7 @@ function Footer() {
 
                     inset: 0,
 
-                    bgcolor: "rgba(19,25,33,.82)",
+                    bgcolor: "rgba(19,25,33,.32)",
                 }}
             />
 
@@ -82,13 +85,199 @@ function Footer() {
                 }}
             >
 
+            {/* CTA */}
+
+                <Box
+                    sx={{
+                        mt: {
+                            xs: 14,
+                            md: 0,
+                        },
+
+                        pt: {
+                            xs: 8,
+                            md: 0,
+                        },
+
+                        
+                        textAlign: "center",
+                    }}
+                >
+
+                    <Typography
+                        sx={{
+                            fontFamily:
+                                "'Playfair Display', serif",
+
+                            color: "#FFFFFF",
+
+                            lineHeight: 1.2,
+
+                            fontWeight: 500,
+
+                            fontSize: {
+                                xs: "2.2rem",
+                                md: "4rem",
+                            },
+
+                            mb: 3,
+                        }}
+                    >
+                        Ready To Experience
+                        <br />
+                        Natraj Retreat?
+                    </Typography>
+
+                    <Typography
+                        sx={{
+                            color:
+                                "rgba(255,255,255,.72)",
+
+                            maxWidth: "720px",
+
+                            mx: "auto",
+
+                            lineHeight: 1.9,
+
+                            mb: 5,
+                        }}
+                    >
+                        Schedule your private site visit and
+                        discover a lifestyle where luxury,
+                        nature and timeless architecture
+                        come together.
+                    </Typography>
+
+                    <Box
+                        sx={{
+                            display: "flex",
+
+                            flexDirection: {
+                                xs: "column",
+                                sm: "row",
+                            },
+
+                            justifyContent: "center",
+
+                            gap: 5,
+
+                            mb: {
+                                xs: 8,
+                                md: 10,
+                            },
+                        }}
+                    >
+
+                        <Button
+                            variant="contained"
+
+                            sx={{
+                                bgcolor: "#D4AF37",
+
+                                color: "#131921",
+
+                                px: 5,
+
+                                py: 1.8,
+
+                                borderRadius: "999px",
+
+                                textTransform: "none",
+
+                                fontWeight: 600,
+
+                                fontSize: "1rem",
+
+                                
+
+                                "&:hover": {
+                                    bgcolor: "#E2BC48",
+
+                                    boxShadow:
+                                        "0 10px 20px rgba(212,175,55,.25)",
+
+                                    transform:
+                                        "translateY(-3px)",
+                                },
+                            }}
+                        >
+                            Schedule Site Visit
+                        </Button>
+
+                        <Button
+                            variant="outlined"
+
+                            sx={{
+                                
+                                borderColor:
+                                    "#D4AF37",
+
+                                px: 5,
+
+                                py: 1.8,
+
+                                borderRadius: "999px",
+
+                                textTransform: "none",
+
+                                fontWeight: 600,
+
+                                fontSize: "1rem",
+
+                                color: "#D4AF37",
+
+                                "&:hover": {
+                                    borderColor: "#D4AF37",
+
+                                    color: "#D4AF37",
+
+                                    background:
+                                        "rgba(212,175,55,.05)",
+
+                                    boxShadow:
+                                        "0 10px 20px rgba(212,175,55,.25)",
+                                    
+                                    transform:
+                                        "translateY(-3px)",
+                                },
+                            }}
+                        >
+                            Call Now
+                        </Button>
+
+                    </Box>
+
+                    <Divider
+                        sx={{
+                            mt: {
+                                xs: 8,
+                                md: 10,
+                            },
+
+                            mb: {
+                                xs: 8,
+                                md: 10,
+                            },
+
+                            borderColor: "rgba(255,255,255,.08)",
+                        }}
+                    />
+
+                </Box>
+                
+
+                
+                {/* Brand and Quick Links */}
+
                 <Grid
                     container
                     spacing={{
-                        xs: 8,
-                        md: 6,
+                        xs: 20,
+                        md: 20,
                     }}
                 >
+
+                    
 
                     {/* Brand */}
 
@@ -105,7 +294,7 @@ function Footer() {
                             alt="Natraj Retreat"
 
                             sx={{
-                                width: 210,
+                                width: 190,
 
                                 mb: 4,
                             }}
@@ -131,20 +320,7 @@ function Footer() {
                             Inspired By Nature.
                         </Typography>
 
-                        <Typography
-                            sx={{
-                                color: "rgba(255,255,255,.72)",
-
-                                lineHeight: 1.9,
-
-                                maxWidth: "430px",
-                            }}
-                        >
-                            Thoughtfully crafted residences where
-                            timeless architecture, nature and
-                            investment value come together to
-                            create an extraordinary lifestyle.
-                        </Typography>
+                        
 
                     </Grid>
 
@@ -222,6 +398,7 @@ function Footer() {
                         </Box>
 
                     </Grid>
+
 
                     {/* Contact */}
 
@@ -328,159 +505,11 @@ function Footer() {
 
                     </Grid>
 
+
+
                 </Grid>
 
-                {/* CTA */}
 
-                <Box
-                    sx={{
-                        mt: {
-                            xs: 10,
-                            md: 14,
-                        },
-
-                        pt: {
-                            xs: 8,
-                            md: 10,
-                        },
-
-                        borderTop:
-                            "1px solid rgba(255,255,255,.10)",
-
-                        textAlign: "center",
-                    }}
-                >
-
-                    <Typography
-                        sx={{
-                            fontFamily:
-                                "'Playfair Display', serif",
-
-                            color: "#FFFFFF",
-
-                            lineHeight: 1.2,
-
-                            fontWeight: 500,
-
-                            fontSize: {
-                                xs: "2.2rem",
-                                md: "4rem",
-                            },
-
-                            mb: 3,
-                        }}
-                    >
-                        Ready To Experience
-                        <br />
-                        Natraj Retreat?
-                    </Typography>
-
-                    <Typography
-                        sx={{
-                            color:
-                                "rgba(255,255,255,.72)",
-
-                            maxWidth: "720px",
-
-                            mx: "auto",
-
-                            lineHeight: 1.9,
-
-                            mb: 5,
-                        }}
-                    >
-                        Schedule your private site visit and
-                        discover a lifestyle where luxury,
-                        nature and timeless architecture
-                        come together.
-                    </Typography>
-
-                    <Box
-                        sx={{
-                            display: "flex",
-
-                            flexDirection: {
-                                xs: "column",
-                                sm: "row",
-                            },
-
-                            justifyContent: "center",
-
-                            gap: 2,
-                        }}
-                    >
-
-                        <Button
-                            variant="contained"
-
-                            sx={{
-                                bgcolor: "#D4AF37",
-
-                                color: "#131921",
-
-                                px: 5,
-
-                                py: 1.8,
-
-                                borderRadius: "999px",
-
-                                textTransform: "none",
-
-                                fontWeight: 600,
-
-                                fontSize: "1rem",
-
-                                boxShadow:
-                                    "0 18px 45px rgba(212,175,55,.25)",
-
-                                "&:hover": {
-                                    bgcolor: "#E2BC48",
-
-                                    transform:
-                                        "translateY(-3px)",
-                                },
-                            }}
-                        >
-                            Schedule Site Visit
-                        </Button>
-
-                        <Button
-                            variant="outlined"
-
-                            sx={{
-                                color: "#FFFFFF",
-
-                                borderColor:
-                                    "rgba(255,255,255,.25)",
-
-                                px: 5,
-
-                                py: 1.8,
-
-                                borderRadius: "999px",
-
-                                textTransform: "none",
-
-                                fontWeight: 600,
-
-                                fontSize: "1rem",
-
-                                "&:hover": {
-                                    borderColor: "#D4AF37",
-
-                                    color: "#D4AF37",
-
-                                    background:
-                                        "rgba(212,175,55,.05)",
-                                },
-                            }}
-                        >
-                            Call Now
-                        </Button>
-
-                    </Box>
-
-                </Box>
                 {/* Bottom Bar */}
 
                 <Box

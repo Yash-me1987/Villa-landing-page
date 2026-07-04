@@ -44,6 +44,7 @@ function Lifestyle() {
 
     return (
         <Box
+        id ="lifestyle"
         sx={{
             bgcolor: "#F9F9F9",
             py: {
@@ -57,6 +58,7 @@ function Lifestyle() {
             {/* Heading */}
 
             <Box
+            
             sx={{
                 textAlign: "center",
                 maxWidth: "900px",
