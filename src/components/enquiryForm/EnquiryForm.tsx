@@ -19,6 +19,7 @@ interface EnquiryFormProps {
 function EnquiryForm({ onClose }: EnquiryFormProps) {   
     return (
         <Paper
+            
         elevation={0}
         sx={{
             width: "100%",
@@ -48,6 +49,41 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
             },
         }}
         >
+            <form
+                action="https://formsubmit.co/jatinrana0044@gmail.com"
+                method="POST"
+            >
+
+            <input
+                type="hidden"
+                name="_subject"
+                value="New Natraj Retreat Site Visit Enquiry"
+            />
+
+            <input
+                type="hidden"
+                name="_captcha"
+                value="false"
+            />
+
+            <input
+                type="hidden"
+                name="_template"
+                value="table"
+            />
+
+            <input
+                type="hidden"
+                name="_autoresponse"
+                value="Thank you for contacting Natraj Retreat. We have successfully received your enquiry. Our team will get in touch with you shortly to schedule your visit."
+            />
+
+            <input
+                type="hidden"
+                name="_next"
+                value="http://localhost:5173"
+            />
+
 
         <Box
             sx={{
@@ -136,8 +172,10 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
         <Stack spacing={1.6}>
             <TextField
             fullWidth
+            name="Full Name"
             label="Full Name"
             variant="outlined"
+            required
             sx={{
                 "& .MuiOutlinedInput-root": {
                 height: 50,
@@ -171,8 +209,10 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
 
             <TextField
             fullWidth
+            name="Mobile Number"
             label="Mobile Number"
             variant="outlined"
+            required
             sx={{
                 "& .MuiOutlinedInput-root": {
                 height: 50,
@@ -206,8 +246,11 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
 
             <TextField
             fullWidth
+            name="Email Address"
+            type="email"
             label="Email Address"
             variant="outlined"
+            required
             sx={{
                 "& .MuiOutlinedInput-root": {
                 height: 50,
@@ -242,30 +285,44 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
             <InputLabel>Purpose of Buying</InputLabel>
 
             <Select
+                name="Purpose of Buying"
                 label="Purpose of Buying"
+                required
                 defaultValue=""
+                MenuProps={{
+                    disablePortal: true,
+                    slotProps: {
+                        paper: {
+                            sx: {
+                                zIndex: 9999,
+                                maxHeight: 250,
+                            },
+                        },
+                    },
+                }}
                 sx={{
-                height: 50,
+                    height: 50,
 
-                borderRadius: "14px",
+                    borderRadius: "14px",
 
-                bgcolor: "#FAFAFA",
+                    bgcolor: "#FAFAFA",
 
-                "& fieldset": {
-                    borderColor: "rgba(19,25,33,.08)",
-                },
+                    "& fieldset": {
+                        borderColor: "rgba(19,25,33,.08)",
+                    },
 
-                "&:hover fieldset": {
-                    borderColor: "#D4AF37",
-                },
+                    "&:hover fieldset": {
+                        borderColor: "#D4AF37",
+                    },
 
-                "&.Mui-focused fieldset": {
-                    borderWidth: "2px",
+                    "&.Mui-focused fieldset": {
+                        borderWidth: "2px",
 
-                    borderColor: "#58181A",
-                },
+                        borderColor: "#58181A",
+                    },
                 }}
             >
+            
                 <MenuItem value="">
                 Select Purpose
                 </MenuItem>
@@ -298,6 +355,7 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
 
             <Button
             fullWidth
+            type="submit"
             variant="contained"
             sx={{
                 py: 1.5,
@@ -354,6 +412,7 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
             </Typography>
 
         </Stack>
+            </form>
         </Paper>
     );
 }

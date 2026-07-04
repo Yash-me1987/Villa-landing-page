@@ -259,25 +259,19 @@ function Navbar() {
             
 
             <Button
-                onClick={() => scrollToSection("footer")}
+                onClick={() => {
+                    scrollToSection("hero");
+
+                    setTimeout(() => {
+                        window.dispatchEvent(new Event("openEnquiryForm"));
+                    }, 0);
+                }}
                 variant="contained"
                 sx={{
                 display: {
                     xs: "none",
                     md: "flex",
                 },
-
-                opacity: scrolled ? 1 : 0,
-
-                pointerEvents: scrolled
-                ? "auto"
-                : "none",
-
-                transform: scrolled
-                    ? "translateX(0)"
-                    : "translateX(24px)",
-
-                transition: ".35s ease",
 
                 bgcolor: "#58181A",
 
@@ -426,7 +420,15 @@ function Navbar() {
             <Button
             fullWidth
             variant="contained"
-            onClick={() => scrollToSection("footer")}
+            onClick={() => {
+                setMobileOpen(false);
+
+                scrollToSection("hero");
+
+                setTimeout(() => {
+                    window.dispatchEvent(new Event("openEnquiryForm"));
+                }, 700);
+            }}
             sx={{
                 bgcolor: "#58181A",
 

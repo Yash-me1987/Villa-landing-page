@@ -10,7 +10,12 @@ import footerBg from "../../assets/gallery/gallery-hero.webp";
 
 import Divider from "@mui/material/Divider";
 
+import { useState } from "react";
+import EnquiryForm from "../enquiryForm/EnquiryForm";
+
 function Footer() {
+    
+    const [showForm, setShowForm] = useState(false);
 
     const quickLinks = [
         "Home",
@@ -170,7 +175,8 @@ function Footer() {
 
                         <Button
                             variant="contained"
-
+                            onClick={() => setShowForm(true)}
+                                
                             sx={{
                                 bgcolor: "#D4AF37",
 
@@ -245,7 +251,25 @@ function Footer() {
                             Call Now
                         </Button>
 
+                        
+
                     </Box>
+                    {showForm && (
+                            <Box
+                                sx={{
+                                    mt: 4,
+                                    display: {
+                                        xs: "flex",
+                                        lg: "none",
+                                    },
+                                    justifyContent: "center",
+                                }}
+                            >
+                                <EnquiryForm
+                                    onClose={() => setShowForm(false)}
+                                />
+                            </Box>
+                        )}
 
                     <Divider
                         sx={{
@@ -641,7 +665,28 @@ function Footer() {
 
             </Container>
 
+            {showForm && (
+                <Box
+                    sx={{
+                        display: {
+                            xs: "none",
+                            lg: "flex",
+                        },
+
+                        position: "absolute",
+                        top: 40,
+                        right: 40,
+                        zIndex: 50,
+                    }}
+                >
+                    <EnquiryForm
+                        onClose={() => setShowForm(false)}
+                    />
+                </Box>
+            )}
+
         </Box>
+        
 
     );
 }

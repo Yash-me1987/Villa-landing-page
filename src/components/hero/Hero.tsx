@@ -49,6 +49,19 @@ function Hero() {
     }, []);
     
     const [showForm, setShowForm] = useState(false);
+
+    useEffect(() => {
+        const openForm = () => {
+            setShowForm(true);
+        };
+
+        window.addEventListener("openEnquiryForm", openForm);
+
+        return () => {
+            window.removeEventListener("openEnquiryForm", openForm);
+        };
+    }, []);
+    
     
     return (
         <Box
@@ -469,26 +482,38 @@ function Hero() {
 
                         inset: 0,
 
-                        bgcolor: "rgba(19,25,33,.55)",
+                        alignItems: "flex-start",
 
-                        backdropFilter: "blur(8px)",
+                        justifyContent: "center",
 
-                        alignItems: "center",
-
-                        justifyContent: "flex-start",
-
-                        pt: 10,
+                        pt: 3,
                         px: 2,
                         pb: 2,
 
                         zIndex: 3000,
 
-                        overflowY: "auto",
+                        overflowY: "scroll",
+
+                        overscrollBehavior: "contain",
+
+                        WebkitOverflowScrolling: "touch",
                     }}
                 >
-                    <EnquiryForm
-                        onClose={() => setShowForm(false)}
-                    />
+
+                    <Box
+                        sx={{
+                            width: "100%",
+                            maxWidth: 390,
+
+                            my: "auto",
+
+                            flexShrink: 0,
+                        }}
+                    >
+                        <EnquiryForm
+                            onClose={() => setShowForm(false)}
+                        />
+                    </Box>
                 </Box>
             )}
 
