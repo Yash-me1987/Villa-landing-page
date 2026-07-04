@@ -183,10 +183,10 @@ function Hero() {
             <Box
             sx={{
                 width: {
-                xs: "100%",
-                sm: "92%",
-                md: "42%",
-                lg: "38%",
+                    xs: "100%",
+                    sm: "92%",
+                    md: "48%",
+                    lg: "44%",
                 },
 
                 ml: {
@@ -224,12 +224,12 @@ function Hero() {
             <Typography
                 sx={{
                 fontFamily: "'Playfair Display', serif",
-                fontWeight: 500,
+                fontWeight: 450,
                 color: "#FFFFFF",
 
                 lineHeight: 1.08,
 
-                letterSpacing: "-1.4px",
+                letterSpacing: "-1px",
 
                 mb: 5,
 
@@ -247,7 +247,7 @@ function Hero() {
                         display: "block",
                     }}
                     >
-                    LIVE DIVINE.
+                    LIVE DIVINE
                     </Box>
 
                     <Box
@@ -260,7 +260,7 @@ function Hero() {
                         },
                     }}
                     >
-                    LIVE EXTRAORDINARY.
+                    LIVE EXTRAORDINARY
                 </Box>
             </Typography>
 
@@ -271,7 +271,7 @@ function Hero() {
                 fontFamily: "'Playfair Display', serif",
                 color: "#FFFFFF",
 
-                lineHeight: 1.55,
+                lineHeight: 1.2,
 
                 mb: 3,
 
@@ -412,27 +412,47 @@ function Hero() {
 
             <Box
                 sx={{
-                    position: "relative",
+                        position: "absolute",
 
-                    top: "50%",
+                        top: 0,
 
-                    right: showForm ? "5%" : "-120%",
+                        right: 0,
 
-                    display: {
-                        xs: "none",
-                        lg: "block",
-                    },
+                        width: "100%",
 
-                    transform: "translateY(-50%)",
+                        height: "100%",
 
-                    transition: "right .65s ease",
+                        display: {
+                            xs: "none",
+                            lg: "flex",
+                        },
 
-                    zIndex: 8,
-                }}
-            >
-                <EnquiryForm 
-                    onClose={() => setShowForm(false)}
-                />
+                        justifyContent: "flex-end",
+
+                        alignItems: "center",
+
+                        pr: 6,
+
+                        pointerEvents: "none",
+
+                        zIndex: 8,
+                    }}
+                >
+                <Box
+                    sx={{
+                        pointerEvents: "auto",
+
+                        transform: showForm
+                            ? "translateX(0)"
+                            : "translateX(130%)",
+
+                        transition: "transform .6s ease",
+                    }}
+                >
+                    <EnquiryForm
+                        onClose={() => setShowForm(false)}
+                    />
+                </Box>
             </Box>
 
             {/* Mobile Enquiry Form */}
@@ -455,9 +475,11 @@ function Hero() {
 
                         alignItems: "center",
 
-                        justifyContent: "center",
+                        justifyContent: "flex-start",
 
-                        p: 2,
+                        pt: 10,
+                        px: 2,
+                        pb: 2,
 
                         zIndex: 3000,
 

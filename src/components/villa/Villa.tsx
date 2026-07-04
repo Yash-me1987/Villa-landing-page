@@ -586,7 +586,7 @@ function Villa() {
                             sx={{
                                 bgcolor: "#D4AF37",
 
-                                color: "#131921",
+                                color: "#0a1929",
 
                                 px: 5,
 
@@ -600,19 +600,20 @@ function Villa() {
 
                                 fontSize: "1rem",
 
-                                boxShadow:
-                                    "0 20px 45px rgba(212,175,55,.28)",
+                                
 
                                 transition: ".35s ease",
 
                                 "&:hover": {
                                     bgcolor: "#E2BC48",
 
+                                    boxShadow:
+                                        "0 20px 45px rgba(212,175,55,.28)",
+
                                     transform:
                                         "translateY(-3px)",
 
-                                    boxShadow:
-                                        "0 28px 55px rgba(212,175,55,.35)",
+                                    
                                 },
                             }}
                         >
@@ -620,35 +621,44 @@ function Villa() {
                         </Button>
 
                         <Button
+                            component="a"
+                            href="/brochure/Natraj-Retreat-Brochure.pdf"
+                            
+                            target="_blank"
+                            rel="noopener noreferrer"
                             variant="outlined"
-
                             sx={{
-                                color: "#FFFFFF",
+                                color: "#fff8e7",
 
-                                borderColor:
-                                    "rgba(255,255,255,.25)",
+                                borderColor: "#fff8e7",
 
                                 px: 5,
 
-                                py: 1.7,
+                                py: {
+                                    xs: 2,
+                                    md: 1.7,
+                                },
 
                                 borderRadius: "999px",
 
                                 textTransform: "none",
 
+                                fontFamily: "Poppins",
+
                                 fontWeight: 600,
 
                                 fontSize: "1rem",
 
-                                transition: ".35s ease",
+                                transition: ".3s ease",
 
                                 "&:hover": {
                                     borderColor: "#D4AF37",
 
                                     color: "#D4AF37",
 
-                                    background:
-                                        "rgba(212,175,55,.05)",
+                                    backgroundColor: "rgba(212,175,55,.06)",
+
+                                    transform: "translateY(-2px)",
                                 },
                             }}
                         >

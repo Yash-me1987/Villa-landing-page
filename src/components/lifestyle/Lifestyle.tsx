@@ -379,34 +379,6 @@ function Lifestyle() {
                             >
                                 {item.description}
                             </Typography>
-
-                            <Box
-                                sx={{
-                                    display: "flex",
-
-                                    alignItems: "center",
-
-                                    gap: 1,
-
-                                    color: "#58181A",
-
-                                    fontWeight: 600,
-
-                                    transition: ".35s",
-                                }}
-                            >
-                                Learn More
-
-                                <Box
-                                    component="span"
-                                    className="learnArrow"
-                                    sx={{
-                                        transition: ".35s",
-                                    }}
-                                >
-                                    →
-                                </Box>
-                            </Box>
                         </Paper>
                     </Grid>
                 ))}

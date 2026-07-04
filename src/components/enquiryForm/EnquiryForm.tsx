@@ -22,7 +22,7 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
         elevation={0}
         sx={{
             width: "100%",
-            maxWidth: 430,
+            maxWidth: 390,
 
             borderRadius: "32px",
 
@@ -30,7 +30,7 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
 
             p: {
             xs: 3,
-            md: 4,
+            md: 3,
             },
 
             bgcolor: "#FFFFFF",
@@ -105,8 +105,8 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
             lineHeight: 1.15,
 
             fontSize: {
-                xs: "2.1rem",
-                md: "2.45rem",
+                xs: "2rem",
+                md: "2.15rem",
             },
 
             mb: 1,
