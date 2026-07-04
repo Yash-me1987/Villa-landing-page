@@ -352,34 +352,38 @@ function Navbar() {
             {/* Header */}
 
             <Box
-            sx={{
-                display: "flex",
+                sx={{
+                    display: "flex",
 
-                justifyContent: "flex-start",
+                    justifyContent: "space-between",
 
-                alignItems: "center",
+                    alignItems: "center",
 
-                mb: 7,
-            }}
+                    width: "100%",
+
+                    mb: 7,
+                }}
             >
+            
             <Box
                 component="img"
                 src={logoCrown}
                 alt="Logo"
                 sx={{
                 width: 80,
+                objectFit: "contain",
                 }}
             />
 
             <IconButton
-                onClick={() =>
-                setMobileOpen(false)
-                }
+                onClick={() => setMobileOpen(false)}
                 sx={{
-                color: "#FFFFFF",
+                    color: "#FFFFFF",
+
+                    ml: "auto",
                 }}
             >
-                <CloseIcon />
+                <CloseIcon sx={{ fontSize: 30 }} />
             </IconButton>
             </Box>
 

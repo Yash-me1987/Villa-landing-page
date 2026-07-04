@@ -454,7 +454,7 @@ function Footer() {
                                 </Typography>
 
                                 <Typography>
-                                    +91 XXXXX XXXXX
+                                    +91 7909937484
                                 </Typography>
 
                             </Box>
@@ -474,7 +474,7 @@ function Footer() {
                                 </Typography>
 
                                 <Typography>
-                                    info@natrajretreat.com
+                                    smbinfratechsales01@gmail.com
                                 </Typography>
 
                             </Box>

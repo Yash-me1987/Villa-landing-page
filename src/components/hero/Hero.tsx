@@ -40,7 +40,7 @@ function Hero() {
                     setFadeImage(1);
                 });
 
-            }, 650);
+            }, 700);
 
         }, 7000);
 
@@ -361,42 +361,48 @@ function Hero() {
                 </Button>
 
                 <Button
-                variant="outlined"
-                sx={{
-                    color: "#FFFFFF",
+                    component="a"
+                    href="/brochure/Natraj-Retreat-Brochure.pdf"
+                    
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="outlined"
+                    sx={{
+                        color: "#fff8e7",
 
-                    borderColor: "#FFFFFF",
+                        borderColor: "#fff8e7",
 
-                    px: 5,
+                        px: 5,
 
-                    py: {
-                        xs: 2,
-                        md: 1.7,
-                    },
+                        py: {
+                            xs: 2,
+                            md: 1.7,
+                        },
 
-                    borderRadius: "999px",
+                        borderRadius: "999px",
 
-                    textTransform: "none",
+                        textTransform: "none",
 
-                    fontFamily: "Poppins",
+                        fontFamily: "Poppins",
 
-                    fontWeight: 600,
+                        fontWeight: 600,
 
-                    fontSize: "1rem",
-                    transition: ".3s ease",
+                        fontSize: "1rem",
 
-                    "&:hover": {
-                        borderColor: "#D4AF37",
+                        transition: ".3s ease",
 
-                        color: "#D4AF37",
+                        "&:hover": {
+                            borderColor: "#D4AF37",
 
-                        backgroundColor: "rgba(212,175,55,.06)",
+                            color: "#D4AF37",
 
-                        transform: "translateY(-2px)",
-                    },
-                }}
+                            backgroundColor: "rgba(212,175,55,.06)",
+
+                            transform: "translateY(-2px)",
+                        },
+                    }}
                 >
-                Download Brochure
+                    Download Brochure
                 </Button>
             </Stack>
                 </Box>
@@ -406,7 +412,7 @@ function Hero() {
 
             <Box
                 sx={{
-                    position: "absolute",
+                    position: "relative",
 
                     top: "50%",
 
@@ -435,26 +441,32 @@ function Hero() {
                 <Box
                     sx={{
                         display: {
-                            xs: "block",
+                            xs: "flex",
                             lg: "none",
                         },
 
-                        position: "absolute",
+                        position: "fixed",
 
-                        left: 0,
+                        inset: 0,
 
-                        right: 0,
+                        bgcolor: "rgba(19,25,33,.55)",
 
-                        bottom: 0,
+                        backdropFilter: "blur(8px)",
 
-                        px: 2,
+                        alignItems: "center",
 
-                        pb: 3,
+                        justifyContent: "center",
 
-                        zIndex: 5,
+                        p: 2,
+
+                        zIndex: 3000,
+
+                        overflowY: "auto",
                     }}
                 >
-                    <EnquiryForm />
+                    <EnquiryForm
+                        onClose={() => setShowForm(false)}
+                    />
                 </Box>
             )}
 

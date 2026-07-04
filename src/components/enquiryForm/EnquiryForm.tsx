@@ -53,14 +53,15 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
             sx={{
                 display: "flex",
                 justifyContent: "flex-end",
-                mb: 1,
+                mb: 0.5,
             }}
         >
             <Typography
                 onClick={onClose}
                 sx={{
+                    
                     cursor: "pointer",
-                    fontSize: "1.4rem",
+                    fontSize: "1.5rem",
                     lineHeight: 1,
                     color: "#777",
 
@@ -87,7 +88,7 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
 
             fontSize: ".82rem",
 
-            mb: 2,
+            mb: 1.2,
             }}
         >
             Schedule A Visit
@@ -108,7 +109,7 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
                 md: "2.45rem",
             },
 
-            mb: 1.5,
+            mb: 1,
             }}
         >
             Schedule Your
@@ -124,7 +125,7 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
 
             lineHeight: 1.7,
 
-            mb: 3,
+            mb: 2,
             }}
         >
             Reserve a private guided tour and
@@ -132,14 +133,14 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
             Natraj Retreat firsthand.
         </Typography>
 
-        <Stack spacing={2}>
+        <Stack spacing={1.6}>
             <TextField
             fullWidth
             label="Full Name"
             variant="outlined"
             sx={{
                 "& .MuiOutlinedInput-root": {
-                height: 56,
+                height: 50,
 
                 borderRadius: "14px",
 
@@ -174,7 +175,7 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
             variant="outlined"
             sx={{
                 "& .MuiOutlinedInput-root": {
-                height: 56,
+                height: 50,
 
                 borderRadius: "14px",
 
@@ -209,7 +210,7 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
             variant="outlined"
             sx={{
                 "& .MuiOutlinedInput-root": {
-                height: 56,
+                height: 50,
 
                 borderRadius: "14px",
 
@@ -244,7 +245,7 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
                 label="Purpose of Buying"
                 defaultValue=""
                 sx={{
-                height: 56,
+                height: 50,
 
                 borderRadius: "14px",
 
