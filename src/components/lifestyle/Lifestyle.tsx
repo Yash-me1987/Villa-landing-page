@@ -183,7 +183,7 @@ function Lifestyle() {
                 >
                     {[
                         {
-                            number: "3",
+                            number: "2",
                             suffix: "BHK",
                             label: "Premium Luxury Villas",
                         },

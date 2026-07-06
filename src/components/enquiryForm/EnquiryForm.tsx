@@ -50,7 +50,7 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
         }}
         >
             <form
-                action="https://formsubmit.co/jatinrana0044@gmail.com"
+                action="https://formsubmit.co/smbinfratechsales01@gmail.com"
                 method="POST"
             >
 
@@ -81,7 +81,7 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
             <input
                 type="hidden"
                 name="_next"
-                value="http://localhost:5173"
+                value="https://villa-landing-page-gules.vercel.app/"
             />
 
 
