@@ -27,7 +27,7 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
 
             borderRadius: "32px",
 
-            overflow: "hidden",
+            overflow: "visible",
 
             p: {
             xs: 3,
@@ -290,7 +290,7 @@ function EnquiryForm({ onClose }: EnquiryFormProps) {
                 required
                 defaultValue=""
                 MenuProps={{
-                    disablePortal: true,
+                    
                     slotProps: {
                         paper: {
                             sx: {
