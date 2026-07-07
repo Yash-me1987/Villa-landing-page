@@ -518,9 +518,10 @@ function Footer() {
                                 </Typography>
 
                                 <Typography>
-                                    Mandaleshwar,
+                                    B-201, Shivnery Plaza, 19-FF, Sch.No.54 Vijay Nagar, 
+                                    Opp. Hotel Marriot Indore, 
                                     Madhya Pradesh,
-                                    India
+                                    India 
                                 </Typography>
 
                             </Box>
@@ -591,7 +592,7 @@ function Footer() {
                     >
 
                         <Link
-                            href="#"
+                            
 
                             underline="none"
 
@@ -612,7 +613,7 @@ function Footer() {
                         </Link>
 
                         <Link
-                            href="#"
+                            
 
                             underline="none"
 
