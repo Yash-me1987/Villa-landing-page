@@ -375,7 +375,7 @@ function Hero() {
 
                 <Button
                     component="a"
-                    href="/brochure/Natraj-Retreat-Brochure.pdf"
+                    href="https://drive.google.com/file/d/1-0mrNE70qfgedieeHXBOG-a2JwxAIVLj/view"
                     
                     target="_blank"
                     rel="noopener noreferrer"
